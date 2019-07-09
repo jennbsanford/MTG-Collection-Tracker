@@ -1,7 +1,10 @@
 public class Main {
 
 	public static void main(String[] args) {
-		System.out.println("HELLO WORLD");
+
+		JSONhelper obj = new JSONhelper();
+		String[] test = null;
+		obj.main(test);
 	}
 
 }
