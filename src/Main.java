@@ -4,7 +4,10 @@ public class Main {
 
 		JSONhelper obj = new JSONhelper();
 		String[] test = null;
-		obj.main(test);
+		//obj.displayAllCards();
+
+        System.out.println(obj.isCardValid("Dark Ritual"));
+        System.out.println(obj.isCardValid("Roflcopter"));
 
 		GUI gui = new GUI();
 		gui.main(test);
