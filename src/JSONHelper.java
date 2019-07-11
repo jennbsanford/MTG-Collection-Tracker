@@ -8,7 +8,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-public class JSONhelper {
+public class JSONHelper {
     @SuppressWarnings("unchecked")
 
     private JSONObject jsonObject;
@@ -18,7 +18,7 @@ public class JSONhelper {
     {
     }
 
-    public JSONhelper() {
+    public JSONHelper() {
 
         //JSON parser object to parse read file
         JSONParser jsonParser = new JSONParser();
@@ -41,20 +41,17 @@ public class JSONhelper {
     }
 
     public boolean isCardValid(String cardname) {
-
         if (jsonObject.get(cardname) == null)
             return false;
         else
             return true;
-
     }
 
     public void displayAllCards() {
         //https://stackoverflow.com/questions/9151619/how-to-iterate-over-a-jsonobject
         jsonObject.keySet().forEach(keyStr ->
-        {
-            System.out.println("name: "+ keyStr);
-        });
+            System.out.println("name: "+ keyStr)
+        );
     }
 
 }

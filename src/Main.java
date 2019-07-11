@@ -4,7 +4,7 @@ public class Main {
 
 		JSONhelper obj = new JSONhelper();
 		String[] test = null;
-		//obj.displayAllCards();
+		obj.displayAllCards();
 
         System.out.println(obj.isCardValid("Dark Ritual"));
         System.out.println(obj.isCardValid("Roflcopter"));
