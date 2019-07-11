@@ -9,7 +9,7 @@ public class Main {
         System.out.println(obj.isCardValid("Dark Ritual"));
         System.out.println(obj.isCardValid("Roflcopter"));
 
-		//GUIframe mainFrame = new GUIframe();
+		GUIframe mainFrame = new GUIframe();
 		//mainFrame.main(test);
 	}
 

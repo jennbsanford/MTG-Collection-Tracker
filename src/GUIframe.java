@@ -8,8 +8,17 @@ public class GUIframe extends JFrame
 
     public GUIframe()
     {
+        //set title and have program exit when window is closed
         super("MTG Collection Tracker");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        //create panel and add to frame
+        GUIpanel mainPanel = new GUIpanel();
+        add(mainPanel);
+
+        //show frame on screen
+        pack();
+        setVisible(true);
     }
     private static void initFrame()
     {
@@ -24,6 +33,7 @@ public class GUIframe extends JFrame
     public static void main(String[] args)
     {
         System.out.print("Entered frame class main.");//////////
+        //GUIpanel mainPanel = new GUIpanel();
         //initFrame();
 
     }
