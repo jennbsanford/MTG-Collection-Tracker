@@ -8,6 +8,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import javax.swing.*;///////////
+
 public class JSONReader {
     @SuppressWarnings("unchecked")
 
@@ -52,6 +54,14 @@ public class JSONReader {
             System.out.println("name: "+ keyStr)
         );
     }
+
+    //test to display all cards in window
+    /*public void displayAllCards(JTextArea ta) {
+        //https://stackoverflow.com/questions/9151619/how-to-iterate-over-a-jsonobject
+        jsonObject.keySet().forEach(keyStr ->
+                ta.append("\n"+ keyStr)
+        );
+    }*/
 
 }
 

@@ -10,7 +10,9 @@ public class Main {
         System.out.println(obj.isCardValid("Roflcopter"));
 
 		GUIframe mainFrame = new GUIframe();
-		//mainFrame.main(test);
+
+		//test to display all cards in window
+		//obj.displayAllCards(mainFrame.mainPanel.collection);
 	}
 
 }

@@ -13,9 +13,9 @@ public class GUIpanel extends JPanel
         super(new GridBagLayout());
 
         //setup components
-        collection = new JTextArea(10, 20);
+        collection = new JTextArea(20, 25);
         collection.setEditable(false);
-        deck = new JTextArea(10, 20);
+        deck = new JTextArea(20, 25);
         deck.setEditable(false);
         input = new JTextField(40);
 
