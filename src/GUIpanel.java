@@ -41,7 +41,7 @@ public class GUIpanel extends JPanel
         add(input, constraints);
 
         constraints.gridwidth = GridBagConstraints.WEST;
-        constraints.fill = GridBagConstraints.HORIZONTAL;
+        constraints.fill = GridBagConstraints.VERTICAL;
         constraints.gridx = 1;
         constraints.gridy = 1;
         constraints.weightx = 1;
@@ -52,7 +52,7 @@ public class GUIpanel extends JPanel
         add(new JScrollPane(collection), constraints);
 
         constraints.gridwidth = GridBagConstraints.EAST;
-        constraints.fill = GridBagConstraints.HORIZONTAL;
+        constraints.fill = GridBagConstraints.VERTICAL;
         constraints.gridx = 18;
         constraints.gridy = 1;
         constraints.weightx = 1;
