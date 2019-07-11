@@ -2,7 +2,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		JSONhelper obj = new JSONhelper();
+		JSONReader obj = new JSONReader();
 		String[] test = null;
 		obj.displayAllCards();
 

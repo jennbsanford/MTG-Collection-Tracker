@@ -8,7 +8,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-public class JSONHelper {
+public class JSONReader {
     @SuppressWarnings("unchecked")
 
     private JSONObject jsonObject;
@@ -18,7 +18,7 @@ public class JSONHelper {
     {
     }
 
-    public JSONHelper() {
+    public JSONReader() {
 
         //JSON parser object to parse read file
         JSONParser jsonParser = new JSONParser();
@@ -28,7 +28,6 @@ public class JSONHelper {
             //Read JSON file
             obj = jsonParser.parse(reader);
             jsonObject = (JSONObject) obj;
-
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
