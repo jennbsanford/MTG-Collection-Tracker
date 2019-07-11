@@ -3,7 +3,8 @@ import javax.swing.*;
 //public class GUIframe
 public class GUIframe extends JFrame
 {
-    protected GUIpanel mainPanel = new GUIpanel();
+    //protected GUIpanel mainPanel = new GUIpanel();
+    protected GUIpanel mainPanel;
     //protected static JFrame mainFrame = new JFrame("MTG Collection Tracker");
 
     public GUIframe()
@@ -13,7 +14,7 @@ public class GUIframe extends JFrame
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //create panel and add to frame
-        GUIpanel mainPanel = new GUIpanel();
+        mainPanel = new GUIpanel();
         add(mainPanel);
 
         //show frame on screen
