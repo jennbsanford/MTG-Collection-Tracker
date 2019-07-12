@@ -6,7 +6,6 @@ public class GUIdeckField extends JTextArea {
     GUIdeckField(GridBagConstraints c)
     {
         super(20,25);
-        //GridBagConstraints c = new GridBagConstraints();
         c.gridwidth = GridBagConstraints.EAST;
         c.fill = GridBagConstraints.BOTH;
         c.gridx = 18;
