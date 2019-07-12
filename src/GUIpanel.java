@@ -4,7 +4,7 @@ import java.awt.*;
 public class GUIpanel extends JPanel
 {
     protected JTextArea collection;
-    protected JTextArea deck;
+    protected GUIdeckField deck;
     protected JTextField input;
 
     GUIpanel()
@@ -12,11 +12,18 @@ public class GUIpanel extends JPanel
         //setup panel layout
         super(new GridBagLayout());
 
+        //ready constraints
+        GridBagConstraints c = new GridBagConstraints();
+
         //setup components
         collection = new JTextArea(20, 25);
         collection.setEditable(false);
-        deck = new JTextArea(20, 25);
+        //deck = new JTextArea(20, 25);
+
+        deck = new GUIdeckField(c);
         deck.setEditable(false);
+        add(new JScrollPane(deck), c);
+
         input = new JTextField(40);
 
 
@@ -25,42 +32,42 @@ public class GUIpanel extends JPanel
         //JScrollPane scrollDeck = new JScrollPane(deck);
 
         //set constraint settings
-        GridBagConstraints constraints = new GridBagConstraints();
-        //constraints.gridwidth = GridBagConstraints.REMAINDER;
+        //GridBagConstraints c = new GridBagConstraints();
+        //c.gridwidth = GridBagConstraints.REMAINDER;
 
-        //constraints.fill = GridBagConstraints.VERTICAL;
+        //c.fill = GridBagConstraints.VERTICAL;
 
         //add components to panel
-        constraints.gridwidth = 30;
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.gridx = 1;
-        constraints.gridy = 0;
-        constraints.weightx = 1;
-        constraints.weighty = 1;
-        constraints.insets = new Insets(5, 5, 5,5);
-        add(input, constraints);
+        c.gridwidth = 30;
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 1;
+        c.gridy = 0;
+        c.weightx = 1;
+        c.weighty = 1;
+        c.insets = new Insets(5, 5, 5,5);
+        add(input, c);
 
-        constraints.gridwidth = GridBagConstraints.WEST;
-        constraints.fill = GridBagConstraints.BOTH;
-        constraints.gridx = 1;
-        constraints.gridy = 1;
-        constraints.weightx = 1;
-        constraints.weighty = 1;
-        constraints.insets = new Insets(5, 5, 5,5);
-        //constraints.anchor = GridBagConstraints.WEST;
+        c.gridwidth = GridBagConstraints.WEST;
+        c.fill = GridBagConstraints.BOTH;
+        c.gridx = 1;
+        c.gridy = 1;
+        c.weightx = 1;
+        c.weighty = 1;
+        c.insets = new Insets(5, 5, 5,5);
+        //c.anchor = GridBagConstraints.WEST;
         collection.append("collection here");
-        add(new JScrollPane(collection), constraints);
+        add(new JScrollPane(collection), c);
 
-        constraints.gridwidth = GridBagConstraints.EAST;
-        constraints.fill = GridBagConstraints.BOTH;
-        constraints.gridx = 18;
-        constraints.gridy = 1;
-        constraints.weightx = 1;
-        constraints.weighty = 1;
-        constraints.insets = new Insets(5, 5, 5,5);
-        //constraints.anchor = GridBagConstraints.EAST;
-        deck.append("deck here");
-        add(new JScrollPane(deck), constraints);
+        /*c.gridwidth = GridBagConstraints.EAST;
+        c.fill = GridBagConstraints.BOTH;
+        c.gridx = 18;
+        c.gridy = 1;
+        c.weightx = 1;
+        c.weighty = 1;
+        c.insets = new Insets(5, 5, 5,5);
+        //c.anchor = GridBagConstraints.EAST;*/
+        //deck.append("deck here");
+        //add(new JScrollPane(deck), c);
 
     }
 
