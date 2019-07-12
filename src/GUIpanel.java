@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class GUIpanel extends JPanel
 {
-    protected JTextArea collection;
+    protected GUIcollectionField collection;
     protected GUIdeckField deck;
     protected JTextField input;
 
@@ -15,13 +15,11 @@ public class GUIpanel extends JPanel
         //ready constraints
         GridBagConstraints c = new GridBagConstraints();
 
-        //setup components
-        collection = new JTextArea(20, 25);
-        collection.setEditable(false);
-        //deck = new JTextArea(20, 25);
+        //setup text boxes and add to panel
+        collection = new GUIcollectionField(c);
+        add(new JScrollPane(collection), c);
 
         deck = new GUIdeckField(c);
-        deck.setEditable(false);
         add(new JScrollPane(deck), c);
 
         input = new JTextField(40);
@@ -47,7 +45,7 @@ public class GUIpanel extends JPanel
         c.insets = new Insets(5, 5, 5,5);
         add(input, c);
 
-        c.gridwidth = GridBagConstraints.WEST;
+        /*c.gridwidth = GridBagConstraints.WEST;
         c.fill = GridBagConstraints.BOTH;
         c.gridx = 1;
         c.gridy = 1;
@@ -56,7 +54,7 @@ public class GUIpanel extends JPanel
         c.insets = new Insets(5, 5, 5,5);
         //c.anchor = GridBagConstraints.WEST;
         collection.append("collection here");
-        add(new JScrollPane(collection), c);
+        add(new JScrollPane(collection), c);*/
 
         /*c.gridwidth = GridBagConstraints.EAST;
         c.fill = GridBagConstraints.BOTH;
