@@ -2,16 +2,11 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		JSONReader obj = new JSONReader();
-		String[] test = null;
-		obj.displayAllCards();
-
-        System.out.println(obj.isCardValid("Dark Ritual"));
-        System.out.println(obj.isCardValid("Roflcopter"));
-
-		GUIframe mainFrame = new GUIframe();
-
-		//test to display all cards in window
+		CubeList myCube = new CubeList();
+		myCube.addCard("Dark Ritual");
+		myCube.addCard("Ponder");
+		myCube.addCard("Preordain");
+		myCube.print();
 		//obj.displayAllCards(mainFrame.mainPanel.collection);
 	}
 

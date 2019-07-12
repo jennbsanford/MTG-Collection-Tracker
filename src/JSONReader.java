@@ -13,8 +13,7 @@ import javax.swing.*;///////////
 public class JSONReader {
     @SuppressWarnings("unchecked")
 
-    private JSONObject jsonObject;
-    private Object obj;
+    private JSONObject masterList;
 
     public static void main(String[] args)
     {
@@ -28,8 +27,8 @@ public class JSONReader {
         try (FileReader reader = new FileReader("src/AllCards.json"))
         {
             //Read JSON file
-            obj = jsonParser.parse(reader);
-            jsonObject = (JSONObject) obj;
+            masterList = (JSONObject) jsonParser.parse(reader);
+
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -42,7 +41,7 @@ public class JSONReader {
     }
 
     public boolean isCardValid(String cardname) {
-        if (jsonObject.get(cardname) == null)
+        if (masterList.get(cardname) == null)
             return false;
         else
             return true;
@@ -50,9 +49,22 @@ public class JSONReader {
 
     public void displayAllCards() {
         //https://stackoverflow.com/questions/9151619/how-to-iterate-over-a-jsonobject
-        jsonObject.keySet().forEach(keyStr ->
-            System.out.println("name: "+ keyStr)
-        );
+        //masterList.keySet().forEach(cardName ->
+        //    System.out.println("name: " + cardName)
+        //);
+        masterList.keySet().forEach(cardName ->
+                System.out.println("name: " + cardName));
+    }
+
+    // returns valid String on success, null otherwise
+    public String getCardDetails(String cardname, String details) {
+
+        JSONObject result = (JSONObject) masterList.get(cardname);
+        if (result == null)
+            return null;
+
+        return result.get(details).toString();
+
     }
 
     //test to display all cards in window
