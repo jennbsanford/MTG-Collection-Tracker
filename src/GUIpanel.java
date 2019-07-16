@@ -1,10 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.Vector;
 
 public class GUIpanel extends JPanel
 {
     protected GUIcollectionField collection;
     protected GUIdeckField deck;
+    protected GUIdecksComboBox deckNames;
     protected JTextField input;
 
     GUIpanel()
@@ -21,6 +23,16 @@ public class GUIpanel extends JPanel
 
         deck = new GUIdeckField(c);
         add(new JScrollPane(deck), c);
+
+        /////////////////////////////
+        Vector<String> deckName = new Vector<String>();
+        deckName.add("Storm");
+        deckName.add("Dredge");
+        deckName.add("Amulet");
+        ///////////////////////////////
+
+        deckNames = new GUIdecksComboBox(c, deckName);
+        add(deckNames, c);
 
         input = new JTextField(40);
 
