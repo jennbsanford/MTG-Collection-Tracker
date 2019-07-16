@@ -9,7 +9,7 @@ public class GUIdeckField extends JTextArea {
         c.gridwidth = GridBagConstraints.EAST;
         c.fill = GridBagConstraints.BOTH;
         c.gridx = 18;
-        c.gridy = 1;
+        c.gridy = 2;
         c.weightx = 1;
         c.weighty = 1;
         c.insets = new Insets(5, 5, 5,5);
