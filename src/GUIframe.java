@@ -31,22 +31,13 @@ public class GUIframe extends JFrame
         }
         catch(Exception e)
         {
-            System.out.println(e + "hello");
+            System.out.println(e + "frame");
         }//////////////
 
         //show frame on screen
         pack();
         setVisible(true);
     }
-    /*private static void initFrame()
-    {
-        //set program to exit when window is closed
-        //mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        //create and add panel
-        //GUIpanel mainPanel = new GUIpanel();
-        //mainFrame.add(mainPanel);
-    }*/
 
     public static void main(String[] args)
     {

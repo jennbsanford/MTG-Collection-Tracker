@@ -31,12 +31,12 @@ public class GUIpanel extends JPanel implements ActionListener
 
         /////////////////////////////temp
         Vector<String> deckName = new Vector<String>();
-        deckName.add("Storm");
-        deckName.add("Dredge");
-        deckName.add("Amulet");
+        //deckName.add("Storm");
+        //deckName.add("Dredge");
+        //deckName.add("Amulet");
         ///////////////////////////////
 
-        deckNames = new GUIdecksComboBox(c, deckName);
+        deckNames = new GUIdecksComboBox(c);
         add(deckNames, c);
 
         input = new JTextField(40);

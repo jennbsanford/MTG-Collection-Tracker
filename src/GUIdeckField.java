@@ -25,6 +25,10 @@ public class GUIdeckField extends JTextArea
 
     public void loadDeck() throws Exception
     {
+        //currentDeck should default to first list in deck folder/////
+        if(currentDeck == "")/////////////
+            return;
+
         File newFile = new File(currentDeck);
         BufferedReader reader = new BufferedReader(new FileReader(newFile));
         read(reader, newFile);
