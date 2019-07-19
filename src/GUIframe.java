@@ -25,9 +25,9 @@ public class GUIframe extends JFrame
         //add(contentPane);
 
         //////////////
-        mainPanel.deck.currentDeck = "C:\\Users\\Dylan\\Desktop\\Decks\\deck1.txt";
+        //mainPanel.deck.currentDeck = "C:\\Users\\Dylan\\Desktop\\Decks\\deck1.txt";
         try {
-            mainPanel.deck.loadDeck();
+            //mainPanel.deck.loadDeck();
         }
         catch(Exception e)
         {
