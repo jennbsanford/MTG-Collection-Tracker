@@ -37,6 +37,7 @@ public class GUIpanel extends JPanel implements ActionListener
         ///////////////////////////////
 
         deckNames = new GUIdecksComboBox(c);
+        deckNames.addActionListener(deck);/////////////////////
         add(deckNames, c);
 
         input = new JTextField(40);
@@ -63,18 +64,7 @@ public class GUIpanel extends JPanel implements ActionListener
         temp2.addActionListener(this);
         add(temp2, c);
 
-
-        //setup scroll bars for text boxes
-        //JScrollPane scrollColl = new JScrollPane(collection);
-        //JScrollPane scrollDeck = new JScrollPane(deck);
-
-        //set constraint settings
-        //GridBagConstraints c = new GridBagConstraints();
-        //c.gridwidth = GridBagConstraints.REMAINDER;
-
-        //c.fill = GridBagConstraints.VERTICAL;
-
-        //add components to panel
+        //add input field
         c.gridwidth = 30;
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 1;
@@ -83,29 +73,6 @@ public class GUIpanel extends JPanel implements ActionListener
         c.weighty = 1;
         c.insets = new Insets(5, 5, 5,5);
         add(input, c);
-
-        /*c.gridwidth = GridBagConstraints.WEST;
-        c.fill = GridBagConstraints.BOTH;
-        c.gridx = 1;
-        c.gridy = 1;
-        c.weightx = 1;
-        c.weighty = 1;
-        c.insets = new Insets(5, 5, 5,5);
-        //c.anchor = GridBagConstraints.WEST;
-        collection.append("collection here");
-        add(new JScrollPane(collection), c);*/
-
-        /*c.gridwidth = GridBagConstraints.EAST;
-        c.fill = GridBagConstraints.BOTH;
-        c.gridx = 18;
-        c.gridy = 1;
-        c.weightx = 1;
-        c.weighty = 1;
-        c.insets = new Insets(5, 5, 5,5);
-        //c.anchor = GridBagConstraints.EAST;*/
-        //deck.append("deck here");
-        //add(new JScrollPane(deck), c);
-
     }
 
     public void actionPerformed(ActionEvent e)
