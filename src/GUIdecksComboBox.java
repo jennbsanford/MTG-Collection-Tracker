@@ -5,13 +5,10 @@ import java.util.Vector;
 
 public class GUIdecksComboBox extends JComboBox {
 
-    private Vector<String> deckNames;
+    private Vector<String> deckNames;//////////////
 
-
-    //GUIdecksComboBox(GridBagConstraints c, Vector<String> names)
     GUIdecksComboBox(GridBagConstraints c)
     {
-        //super();
         c.gridwidth = GridBagConstraints.EAST;
         //c.fill = GridBagConstraints.BOTH;
         c.gridx = 19;
@@ -24,16 +21,6 @@ public class GUIdecksComboBox extends JComboBox {
 
         //show blank selection on startup
         setSelectedIndex(-1);
-
-
-        //add(deckNames[1]);
-        //for(int i = 0; i < deckNames.size(); i++)
-            //addItem(deckNames.elementAt(i));
-
-        /*deckNames = names;
-        deckNames.add("Storm");
-        deckNames.add("Dredge");
-        deckNames.add("Mid Dazzle");*/
     }
 
     //loads deck names from specified location
@@ -45,7 +32,6 @@ public class GUIdecksComboBox extends JComboBox {
 
         for(int i = 0; i < fileNames.length; i++)
         {
-            //deckNames.add(fileNames[i].getName());
             addItem(fileNames[i].getName());
         }
     }
