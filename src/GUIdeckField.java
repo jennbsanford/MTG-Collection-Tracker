@@ -22,18 +22,18 @@ public class GUIdeckField extends JTextArea implements ActionListener
         c.weightx = 1;
         c.weighty = 1;
         c.insets = new Insets(5, 5, 5,5);
+
         setEditable(false);
-        append("deck here");////////
+
+        append("Select a deck from above, or create a new one!");
     }
 
+    //displays selected deck in deck field
     public void loadDeck(String filename) throws Exception
     {
-        //currentDeck should default to first list in deck folder/////
-        //if(currentDeck == "")/////////////
-        //    return;
-
         currentDeck = filename;
-        String location = "C:\\Users\\Dylan\\Desktop\\Decks\\" + filename;
+        //String location = "C:\\Users\\Dylan\\Desktop\\Decks\\" + filename;
+        String location = "Decks/" + filename;
 
         File newFile = new File(location);
         BufferedReader reader = new BufferedReader(new FileReader(newFile));
@@ -43,18 +43,21 @@ public class GUIdeckField extends JTextArea implements ActionListener
         //read(reader, currentDeck);
     }
 
+    //activates when a deck is selected from drop down menu
     public void actionPerformed(ActionEvent e)
     {
-        JComboBox names = (JComboBox) e.getSource();
-        String selection = (String) names.getSelectedItem();
         try
         {
+            JComboBox names = (JComboBox) e.getSource();
+            String selection = (String) names.getSelectedItem();
+
             this.loadDeck(selection);
         }
         catch(Exception ex)
         {
             System.out.println(ex + "deckField");
         }
+
         //JComponent source = (JComponent)e.getSource();
         //System.out.println(selection);
         //e.paramString();
