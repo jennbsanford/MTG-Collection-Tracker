@@ -9,7 +9,6 @@ import java.io.FileReader;
 
 public class GUIdeckField extends JTextArea implements ActionListener
 {
-
     protected String currentDeck = "";
 
     GUIdeckField(GridBagConstraints c)
@@ -38,9 +37,6 @@ public class GUIdeckField extends JTextArea implements ActionListener
         File newFile = new File(location);
         BufferedReader reader = new BufferedReader(new FileReader(newFile));
         read(reader, newFile);
-
-        //FileReader reader = new FileReader(currentDeck);
-        //read(reader, currentDeck);
     }
 
     //activates when a deck is selected from drop down menu
