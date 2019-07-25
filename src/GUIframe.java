@@ -3,7 +3,6 @@ import javax.swing.*;
 public class GUIframe extends JFrame
 {
     protected GUIpanel mainPanel;
-    //protected GUIcontainer contentPane;
 
     public GUIframe() throws Exception
     {
@@ -14,9 +13,6 @@ public class GUIframe extends JFrame
         //create panel and add to frame
         mainPanel = new GUIpanel();
         add(mainPanel);
-
-        //contentPane = new GUIcontainer();
-        //add(contentPane);
 
         //show frame on screen
         pack();
