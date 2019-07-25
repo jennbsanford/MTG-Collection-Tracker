@@ -21,6 +21,11 @@ public class GUIdecksComboBox extends JComboBox {
         c.insets = new Insets(5, 5, 5,5);
 
         loadNames();
+
+        //show blank selection on startup
+        setSelectedIndex(-1);
+
+
         //add(deckNames[1]);
         //for(int i = 0; i < deckNames.size(); i++)
             //addItem(deckNames.elementAt(i));
@@ -31,9 +36,11 @@ public class GUIdecksComboBox extends JComboBox {
         deckNames.add("Mid Dazzle");*/
     }
 
+    //loads deck names from specified location
     private void loadNames()
     {
-        File directory = new File("C:\\Users\\Dylan\\Desktop\\Decks");
+        //File directory = new File("C:\\Users\\Dylan\\Desktop\\Decks");
+        File directory = new File("Decks");
         File[] fileNames = directory.listFiles();
 
         for(int i = 0; i < fileNames.length; i++)
