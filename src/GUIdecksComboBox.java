@@ -19,7 +19,7 @@ public class GUIdecksComboBox extends JComboBox {
 
         loadNames();
 
-        //show blank selection on startup
+        //show default message and number of decks
         int numItems = getItemCount();
         insertItemAt("Select a deck (" + numItems + ")", 0);
         setSelectedIndex(0);
