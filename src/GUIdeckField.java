@@ -60,9 +60,5 @@ public class GUIdeckField extends JTextArea implements ActionListener
         {
             System.out.println(ex + "deckField");//////
         }
-
-        //JComponent source = (JComponent)e.getSource();
-        //System.out.println(selection);
-        //e.paramString();
     }
 }
