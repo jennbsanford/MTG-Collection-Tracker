@@ -1,5 +1,4 @@
 import javax.swing.*;
-import javax.tools.JavaCompiler;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,6 +8,7 @@ import java.io.FileReader;
 
 public class GUIdeckField extends JTextArea implements ActionListener
 {
+    private Object defaultMessage = "";
     protected String currentDeck = "";
 
     GUIdeckField(GridBagConstraints c)
@@ -44,14 +44,21 @@ public class GUIdeckField extends JTextArea implements ActionListener
     {
         try
         {
+            //get copy of deck names comboBox
             JComboBox names = (JComboBox) e.getSource();
-            String selection = (String) names.getSelectedItem();
 
+            //once first deck is selected, remove default message on drop down menu
+            if(defaultMessage == "")
+                defaultMessage = names.getItemAt(0);
+            names.removeItem(defaultMessage);
+
+            //load selected deck
+            String selection = (String) names.getSelectedItem();
             this.loadDeck(selection);
         }
         catch(Exception ex)
         {
-            System.out.println(ex + "deckField");
+            System.out.println(ex + "deckField");//////
         }
 
         //JComponent source = (JComponent)e.getSource();
