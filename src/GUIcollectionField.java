@@ -6,7 +6,6 @@ public class GUIcollectionField extends JTextArea {
     GUIcollectionField(GridBagConstraints c)
     {
         super(20,25);
-        //GridBagConstraints c = new GridBagConstraints();
         c.gridwidth = GridBagConstraints.WEST;
         c.fill = GridBagConstraints.BOTH;
         c.gridx = 1;
