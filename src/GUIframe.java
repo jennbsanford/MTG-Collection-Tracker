@@ -16,6 +16,7 @@ public class GUIframe extends JFrame
 
         //show frame on screen
         pack();
+        setResizable(false);//
         setVisible(true);
     }
 
