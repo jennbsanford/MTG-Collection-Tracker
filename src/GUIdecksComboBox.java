@@ -11,7 +11,7 @@ public class GUIdecksComboBox extends JComboBox {
     GUIdecksComboBox(GridBagConstraints c)
     {
         c.gridwidth = GridBagConstraints.EAST;
-        //c.fill = GridBagConstraints.BOTH;
+        c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 19;
         c.gridy = 1;
         c.weightx = 1;
@@ -21,8 +21,7 @@ public class GUIdecksComboBox extends JComboBox {
         loadNames();
 
         //show default message and number of decks
-        int numItems = getItemCount();
-        insertItemAt("Select a deck (" + numItems + ")", 0);
+        insertItemAt("Select a deck (" + getItemCount() + ")", 0);
         setSelectedIndex(0);
     }
 
@@ -34,8 +33,6 @@ public class GUIdecksComboBox extends JComboBox {
         File[] fileNames = directory.listFiles();
 
         for(int i = 0; i < fileNames.length; i++)
-        {
             addItem(fileNames[i].getName());
-        }
     }
 }
