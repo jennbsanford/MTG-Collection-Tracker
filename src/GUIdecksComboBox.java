@@ -6,6 +6,7 @@ import java.util.Vector;
 public class GUIdecksComboBox extends JComboBox {
 
     //private Vector<String> deckNames;//////////////
+    protected String path = "Decks";//
 
     GUIdecksComboBox(GridBagConstraints c)
     {
@@ -26,10 +27,10 @@ public class GUIdecksComboBox extends JComboBox {
     }
 
     //loads deck names from specified location
-    private void loadNames()
+    protected void loadNames()
     {
         //File directory = new File("C:\\Users\\Dylan\\Desktop\\Decks");
-        File directory = new File("Decks");
+        File directory = new File(path);
         File[] fileNames = directory.listFiles();
 
         for(int i = 0; i < fileNames.length; i++)
