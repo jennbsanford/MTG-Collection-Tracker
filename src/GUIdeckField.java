@@ -8,7 +8,8 @@ import java.io.FileReader;
 
 public class GUIdeckField extends JTextArea implements ActionListener
 {
-    private Object defaultMessage = "";
+    //private Object defaultMessage = "";
+    private Boolean defaultMessage = true;
     protected String currentDeck = "";
 
     GUIdeckField(GridBagConstraints c)
@@ -44,17 +45,38 @@ public class GUIdeckField extends JTextArea implements ActionListener
     {
         try
         {
-            //get copy of deck names comboBox
-            JComboBox names = (JComboBox)e.getSource();
+            //System.out.println(action.getClass());
 
-            //once first deck is selected, remove default message on drop down menu
-            if(defaultMessage == "")
-                defaultMessage = names.getItemAt(0);
-            names.removeItem(defaultMessage);
+            //find type of object that performed the action
+            String ObjType = e.getSource().getClass().getName();
+
+            //user selected a deck to load
+            if(ObjType == "GUIdecksComboBox")
+            {
+                GUIdecksComboBox names = (GUIdecksComboBox)e.getSource();
+                loadDeck((String)names.getSelectedItem());
+
+                /*//once first deck is selected, remove default message on drop down menu
+                if(defaultMessage == "")
+                {
+                    defaultMessage = names.getItemAt(0);
+                    names.removeItem(defaultMessage);
+                }*/
+                //once first deck is selected, remove default message on drop down menu
+                if(defaultMessage == true)
+                {
+                    //defaultMessage = names.getItemAt(0);
+                    names.removeItem(names.getItemAt(0));
+                    defaultMessage = false;
+                }
+            }
+
+
+
 
             //load selected deck
-            String selection = (String)names.getSelectedItem();
-            this.loadDeck(selection);
+            //String selection = (String)names.getSelectedItem();
+            //loadDeck(selection);
         }
         catch(Exception ex)
         {
