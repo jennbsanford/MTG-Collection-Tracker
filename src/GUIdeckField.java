@@ -54,27 +54,18 @@ public class GUIdeckField extends JTextArea implements ActionListener
             if(ObjType == "GUIdecksComboBox")
             {
                 GUIdecksComboBox names = (GUIdecksComboBox)e.getSource();
-                loadDeck((String)names.getSelectedItem());
+                loadDeck((String) names.getSelectedItem());
 
                 //once first deck is selected, remove default message on drop down menu
-                if(defaultMessage == true)
-                {
-                    //defaultMessage = names.getItemAt(0);
+                if (defaultMessage == true) {
                     names.removeItem(names.getItemAt(0));
                     defaultMessage = false;
                 }
             }
-
-
-
-
-            //load selected deck
-            //String selection = (String)names.getSelectedItem();
-            //loadDeck(selection);
         }
         catch(Exception ex)
         {
-            System.out.println(ex + "deckField");//////
+            //System.out.println(ex + "deckField");//////
         }
     }
 }
