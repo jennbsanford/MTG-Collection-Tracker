@@ -5,7 +5,7 @@ import java.util.Vector;
 
 public class GUIdecksComboBox extends JComboBox {
 
-    private Vector<String> deckNames;//////////////
+    //private Vector<String> deckNames;//////////////
 
     GUIdecksComboBox(GridBagConstraints c)
     {
