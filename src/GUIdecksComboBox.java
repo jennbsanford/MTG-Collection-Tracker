@@ -1,18 +1,17 @@
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
-import java.util.Vector;
 
-public class GUIdecksComboBox extends JComboBox {
-
+public class GUIdecksComboBox extends JComboBox
+{
     //private Vector<String> deckNames;//////////////
     protected String path = "Decks";//
 
     GUIdecksComboBox(GridBagConstraints c)
     {
         c.gridwidth = GridBagConstraints.EAST;
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 19;
+        //c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 18;
         c.gridy = 1;
         c.weightx = 1;
         c.weighty = 1;
