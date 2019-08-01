@@ -9,13 +9,13 @@ public class GUIpanel extends JPanel implements ActionListener
     protected GUIdeckField deck;
     protected GUIdecksComboBox deckNames;
     protected GUIcreateDeckButton createDeck;
-    //protected GUIaddToCollectionButton addToCollection;
-    //protected GUIremoveFromCollectionButton removeFromCollection;
-    //protected GUIaddToDeckButton addToDeck;
-    //protected GUIremoveFromDeckButton removeFromDeck;
-    //protected GUIcopyDeckButton copyDeck;///
-    //protected GUIdeleteDeckButton deleteDeck;
-    //protected GUIsaveAllButton saveAll;
+    protected GUIaddToCollectionButton addToCollection;
+    protected GUIremoveFromCollectionButton removeFromCollection;
+    protected GUIaddToDeckButton addToDeck;
+    protected GUIremoveFromDeckButton removeFromDeck;
+    protected GUIcopyDeckButton copyDeck;///
+    protected GUIdeleteDeckButton deleteDeck;
+    protected GUIsaveAllButton saveAll;
     protected JTextField input;
 
     //protected JButton temp;//
@@ -46,6 +46,25 @@ public class GUIpanel extends JPanel implements ActionListener
         //create new deck button
         createDeck = new GUIcreateDeckButton(c);
         add(createDeck, c);
+
+        /*
+        //add a card to the collection
+
+
+        //remove a card from the collection
+
+        //add a card from the collection to the current deck
+
+        //remove a card from current deck and put it back into the collection
+
+        //copy the current deck with a new name
+
+        //delete the current deck
+
+        //save all changes to decks and the collection
+
+
+         */
 
         //user input field
         input = new JTextField(40);
