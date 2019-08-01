@@ -47,24 +47,36 @@ public class GUIpanel extends JPanel implements ActionListener
         createDeck = new GUIcreateDeckButton(c);
         add(createDeck, c);
 
-        /*
-        //add a card to the collection
 
+        //add a card to the collection
+        addToCollection = new GUIaddToCollectionButton(c);
+        //add(addToCollection, c);
 
         //remove a card from the collection
+        removeFromCollection = new GUIremoveFromCollectionButton(c);
+        //add(removeFromCollection, c);
 
         //add a card from the collection to the current deck
+        addToDeck = new GUIaddToDeckButton(c);
+        //add(addToDeck, c);
 
         //remove a card from current deck and put it back into the collection
+        removeFromDeck = new GUIremoveFromDeckButton(c);
+        //add(removeFromDeck, c);
 
         //copy the current deck with a new name
+        copyDeck = new GUIcopyDeckButton(c);
+        //add(copyDeck, c);
 
         //delete the current deck
+        deleteDeck = new GUIdeleteDeckButton(c);
+        //add(deleteDeck, c);
 
         //save all changes to decks and the collection
+        saveAll = new GUIsaveAllButton(c);
+        //add(saveAll, c);
 
 
-         */
 
         //user input field
         input = new JTextField(40);
