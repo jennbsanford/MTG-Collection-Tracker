@@ -8,10 +8,18 @@ public class GUIpanel extends JPanel implements ActionListener
     protected GUIcollectionField collection;
     protected GUIdeckField deck;
     protected GUIdecksComboBox deckNames;
+    protected GUIcreateDeckButton createDeck;
+    //protected GUIaddToCollectionButton addToCollection;
+    //protected GUIremoveFromCollectionButton removeFromCollection;
+    //protected GUIaddToDeckButton addToDeck;
+    //protected GUIremoveFromDeckButton removeFromDeck;
+    //protected GUIcopyDeckButton copyDeck;///
+    //protected GUIdeleteDeckButton deleteDeck;
+    //protected GUIsaveAllButton saveAll;
     protected JTextField input;
 
-    protected JButton temp;//
-    protected JButton temp2;//
+    //protected JButton temp;//
+    //protected JButton temp2;//
 
     GUIpanel()
     {
@@ -35,10 +43,14 @@ public class GUIpanel extends JPanel implements ActionListener
         deckNames.addActionListener(deck);
         add(deckNames, c);
 
+        //create new deck button
+        createDeck = new GUIcreateDeckButton(c);
+        add(createDeck, c);
+
         //user input field
         input = new JTextField(40);
         c.gridwidth = 30;
-        c.fill = GridBagConstraints.HORIZONTAL;
+        //c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 1;
         c.gridy = 0;
         c.weightx = 1;
@@ -46,7 +58,7 @@ public class GUIpanel extends JPanel implements ActionListener
         c.insets = new Insets(5, 5, 5,5);
         add(input, c);
 
-        temp = new JButton();
+        /*temp = new JButton();
         c.gridwidth = GridBagConstraints.WEST;
         //c.fill = GridBagConstraints.BOTH;
         c.gridx = 0;
@@ -66,7 +78,7 @@ public class GUIpanel extends JPanel implements ActionListener
         c.weighty = 1;
         c.insets = new Insets(5, 5, 5,5);
         temp2.addActionListener(this);
-        add(temp2, c);
+        add(temp2, c);*/
     }
 
     public void actionPerformed(ActionEvent e)
