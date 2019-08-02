@@ -1,8 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class GUIcreateDeckButton extends JButton
 {
+    protected String path = "Decks";//
+
     GUIcreateDeckButton(GridBagConstraints c)
     {
         super("+");
