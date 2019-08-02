@@ -5,9 +5,14 @@ import java.awt.event.ActionListener;
 
 public class GUIpanel extends JPanel implements ActionListener
 {
+    //text fields
     protected GUIcollectionField collection;
     protected GUIdeckField deck;
+
+    //menus
     protected GUIdecksComboBox deckNames;
+
+    //buttons
     protected GUIcreateDeckButton createDeck;
     protected GUIaddToCollectionButton addToCollection;
     protected GUIremoveFromCollectionButton removeFromCollection;
@@ -16,7 +21,11 @@ public class GUIpanel extends JPanel implements ActionListener
     protected GUIcopyDeckButton copyDeck;///
     protected GUIdeleteDeckButton deleteDeck;
     protected GUIsaveAllButton saveAll;
+
     protected JTextField input;
+
+    //windows
+    private GUInewDeckFrame newDeckInput;
 
     //protected JButton temp;//
     //protected JButton temp2;//
@@ -45,6 +54,7 @@ public class GUIpanel extends JPanel implements ActionListener
 
         //create new deck button
         createDeck = new GUIcreateDeckButton(c);
+        //createDeck.addActionListener(createDeck);
         add(createDeck, c);
 
 
@@ -75,6 +85,10 @@ public class GUIpanel extends JPanel implements ActionListener
         //save all changes to decks and the collection
         saveAll = new GUIsaveAllButton(c);
         //add(saveAll, c);
+
+        //window for entering a name for a new deck
+        newDeckInput = new GUInewDeckFrame();
+        createDeck.addActionListener(newDeckInput);
 
 
 
