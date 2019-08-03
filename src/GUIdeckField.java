@@ -34,6 +34,7 @@ public class GUIdeckField extends JTextArea implements ActionListener
     {
         currentDeck = filename;
         //String location = "C:\\Users\\Dylan\\Desktop\\Decks\\" + filename;
+        //String location = "Decks//" + filename;
         String location = "Decks/" + filename;
 
         File newFile = new File(location);
@@ -62,6 +63,12 @@ public class GUIdeckField extends JTextArea implements ActionListener
                     names.removeItem(names.getItemAt(0));
                     defaultMessage = false;
                 }
+            }
+
+            //user created a new deck
+            else if(ObjType == "javax.swing.JButton")
+            {
+                this.setText("YARRRRRRR");
             }
         }
         catch(Exception ex)

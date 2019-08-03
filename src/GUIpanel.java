@@ -50,6 +50,7 @@ public class GUIpanel extends JPanel implements ActionListener
         //deck list drop down menu
         deckNames = new GUIdecksComboBox(c);
         deckNames.addActionListener(deck);
+        //newDeckInput.updater.addActionListener(deckNames);
         add(deckNames, c);
 
         //create new deck button
@@ -89,6 +90,7 @@ public class GUIpanel extends JPanel implements ActionListener
         //window for entering a name for a new deck
         newDeckInput = new GUInewDeckFrame();
         createDeck.addActionListener(newDeckInput);
+        //newDeckInput.updater.addActionListener(deckNames);
 
 
 
@@ -102,6 +104,9 @@ public class GUIpanel extends JPanel implements ActionListener
         c.weighty = 1;
         c.insets = new Insets(5, 5, 5,5);
         add(input, c);
+
+        //action listeners
+        newDeckInput.updater.addActionListener(deckNames);
 
         /*temp = new JButton();
         c.gridwidth = GridBagConstraints.WEST;
