@@ -42,6 +42,7 @@ public class GUIdeckField extends JTextArea implements ActionListener
         File newFile = new File(location);
         BufferedReader reader = new BufferedReader(new FileReader(newFile));
         read(reader, newFile);
+        reader.close();
     }
 
     /*//looks through directory for the last modified deck and loads it

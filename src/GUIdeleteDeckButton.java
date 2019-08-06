@@ -1,7 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class GUIdeleteDeckButton extends JButton
+public class GUIdeleteDeckButton extends JButton implements ActionListener
 {
     GUIdeleteDeckButton(GridBagConstraints c)
     {
@@ -16,5 +18,20 @@ public class GUIdeleteDeckButton extends JButton
         c.weightx = 1;
         c.weighty = 1;
         c.insets = new Insets(5, 1, 5,1);
+    }
+
+    public void actionPerformed(ActionEvent e)
+    {
+        try
+        {
+            //System.out.println(e.getClass());
+
+            //find type of object that performed the action
+            String ObjType = e.getSource().getClass().getName();
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex + "deleteDeckButton");//////
+        }
     }
 }
