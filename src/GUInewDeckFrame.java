@@ -74,6 +74,7 @@ public class GUInewDeckFrame extends JFrame implements ActionListener
                 inputField.setText("");
                 makeCopy = false;
                 setVisible(true);
+                inputField.requestFocusInWindow();
             }
 
             if(ObjType == "GUIcopyDeckButton")
@@ -81,6 +82,7 @@ public class GUInewDeckFrame extends JFrame implements ActionListener
                 inputField.setText("");
                 makeCopy = true;
                 setVisible(true);
+                inputField.requestFocusInWindow();
             }
 
             //user pressed save button
