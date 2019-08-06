@@ -11,6 +11,7 @@ public class GUIdecksComboBox extends JComboBox
     {
         c.gridwidth = GridBagConstraints.EAST;
         //c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridheight = 1;
         c.gridx = 18;
         c.gridy = 1;
         c.weightx = 1;
@@ -28,6 +29,10 @@ public class GUIdecksComboBox extends JComboBox
     protected void loadNames()
     {
         //File directory = new File("C:\\Users\\Dylan\\Desktop\\Decks");
+
+        //empty list
+        removeAllItems();
+
         File directory = new File(path);
         File[] fileNames = directory.listFiles();
 

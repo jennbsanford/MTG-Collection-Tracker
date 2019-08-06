@@ -11,12 +11,13 @@ public class GUIdeckField extends JTextArea implements ActionListener
     //private Object defaultMessage = "";
     private Boolean defaultMessage = true;
     protected String currentDeck = "";
+    protected String path = "Decks/";
 
     GUIdeckField(GridBagConstraints c)
     {
         super(20,25);
         c.gridwidth = GridBagConstraints.EAST;
-        c.gridheight = 1;
+        c.gridheight = 4;
         c.fill = GridBagConstraints.BOTH;
         c.gridx = 18;
         c.gridy = 2;
@@ -35,12 +36,33 @@ public class GUIdeckField extends JTextArea implements ActionListener
         currentDeck = filename;
         //String location = "C:\\Users\\Dylan\\Desktop\\Decks\\" + filename;
         //String location = "Decks//" + filename;
-        String location = "Decks/" + filename;
+        //String location = "Decks/" + filename;
+        String location = path + filename;
 
         File newFile = new File(location);
         BufferedReader reader = new BufferedReader(new FileReader(newFile));
         read(reader, newFile);
     }
+
+    /*//looks through directory for the last modified deck and loads it
+    protected void loadRecentDeck() throws Exception
+    {
+        File directory = new File(path);
+        File[] fileNames = directory.listFiles();
+
+        File mostRecent = null;
+        long mostRecentTime = 0;
+        for(int i = 0; i < fileNames.length; i++)
+        {
+            if (fileNames[i].lastModified() > mostRecentTime) {
+                mostRecent = fileNames[i];
+                mostRecentTime = fileNames[i].lastModified();
+            }
+        }
+
+        //load most recent deck
+        loadDeck(mostRecent.getName());
+    }*/
 
     //activates when a deck is selected from drop down menu
     public void actionPerformed(ActionEvent e)

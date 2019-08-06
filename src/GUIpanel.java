@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 
 public class GUIpanel extends JPanel implements ActionListener
 {
@@ -27,10 +30,12 @@ public class GUIpanel extends JPanel implements ActionListener
     //windows
     private GUInewDeckFrame newDeckInput;
 
+    protected String path = "Decks/";
+
     //protected JButton temp;//
     //protected JButton temp2;//
 
-    GUIpanel()
+    GUIpanel() throws Exception
     {
         //setup panel layout
         super(new GridBagLayout());
@@ -77,11 +82,11 @@ public class GUIpanel extends JPanel implements ActionListener
 
         //copy the current deck with a new name
         copyDeck = new GUIcopyDeckButton(c);
-        //add(copyDeck, c);
+        add(copyDeck, c);
 
         //delete the current deck
         deleteDeck = new GUIdeleteDeckButton(c);
-        //add(deleteDeck, c);
+        add(deleteDeck, c);
 
         //save all changes to decks and the collection
         saveAll = new GUIsaveAllButton(c);
@@ -90,6 +95,9 @@ public class GUIpanel extends JPanel implements ActionListener
         //window for entering a name for a new deck
         newDeckInput = new GUInewDeckFrame();
         createDeck.addActionListener(newDeckInput);
+        copyDeck.addActionListener(newDeckInput);
+        newDeckInput.updater.addActionListener(this);
+        newDeckInput.copyDeck.addActionListener(this);
         //newDeckInput.updater.addActionListener(deckNames);
 
 
@@ -106,7 +114,38 @@ public class GUIpanel extends JPanel implements ActionListener
         add(input, c);
 
         //action listeners
-        newDeckInput.updater.addActionListener(deckNames);
+        //newDeckInput.updater.addActionListener(deckNames);
+        //newDeckInput.updater.addActionListener(this);
+        //newDeckInput.copyDeck.addActionListener(this);
+
+        newDeckInput.copyDeck.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                try {
+                    //String src = path + deckNames.getSelectedItem();
+                    //String des = path + newDeckInput.copyName;
+                    //System.out.println(src + "  " + des);
+
+                    FileInputStream is = new FileInputStream(path + deckNames.getSelectedItem());
+                    FileOutputStream os = new FileOutputStream(path + newDeckInput.copyName);
+                    //byte[] buffer = new byte[1024];
+                    int curr;
+                    //while((curr = is.read(buffer)) > 0)
+                        //os.write(buffer, 0, curr);
+                    while((curr = is.read()) != -1)
+                        os.write(curr);
+
+                    is.close();
+                    os.close();
+
+                    System.out.println("COPYCOPY");
+                }
+                catch(Exception ex){
+                    System.out.println(e + "PanelCopyDeck");
+                }
+            }
+        });
 
         /*temp = new JButton();
         c.gridwidth = GridBagConstraints.WEST;
@@ -131,13 +170,51 @@ public class GUIpanel extends JPanel implements ActionListener
         add(temp2, c);*/
     }
 
+    //createDeck.addActionListener(new ActionListener() {
+     //   public void actionPerformed(ActionEvent e) {
+      //  }
+    //});
+
     public void actionPerformed(ActionEvent e)
     {
-        System.out.println("YOOOO");
+        try
+        {
+            //System.out.println(e.getClass());
+
+            //find type of object that performed the action
+            String ObjType = e.getSource().getClass().getName();
+
+            //set deck field and drop down box to most recently made deck
+            if(ObjType == "javax.swing.JButton")
+            {
+                File directory = new File(path);
+                File[] fileNames = directory.listFiles();
+
+                File mostRecent = null;
+                long mostRecentTime = 0;
+                for(int i = 0; i < fileNames.length; i++)
+                {
+                    if (fileNames[i].lastModified() > mostRecentTime) {
+                        mostRecent = fileNames[i];
+                        mostRecentTime = fileNames[i].lastModified();
+                    }
+                }
+
+                //update components
+                deck.loadDeck(mostRecent.getName());
+                deckNames.loadNames();
+                deckNames.setSelectedItem(mostRecent.getName());
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex + "deckField");//////
+        }
     }
 
     public static void main(String[] args)
     {
+
         System.out.print("Entered panel class main.");//////////
     }
 }

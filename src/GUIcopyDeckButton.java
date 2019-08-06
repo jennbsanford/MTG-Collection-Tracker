@@ -5,13 +5,13 @@ public class GUIcopyDeckButton extends JButton
 {
     GUIcopyDeckButton(GridBagConstraints c)
     {
-        super("+");
-        setToolTipText("Create a new deck");
+        super("++");
+        setToolTipText("Copy the current deck");
         //c.gridwidth = GridBagConstraints.WEST;
-        c.fill = GridBagConstraints.BOTH;
+        //c.fill = GridBagConstraints.BOTH;
         //c.gridheight = GridBagConstraints.NORTH;
         c.gridx = 3;
-        c.gridy = 1;
+        c.gridy = 2;
         //c.fill = GridBagConstraints.NONE;
         c.weightx = 1;
         c.weighty = 1;

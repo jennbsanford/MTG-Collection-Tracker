@@ -10,13 +10,16 @@ public class GUInewDeckFrame extends JFrame implements ActionListener
     protected JTextField inputField;
     protected JButton saveName;
     protected JButton updater;
+    protected JButton copyDeck;
+    protected String copyName;
     //protected JLabel errorMessage;
     //protected String path = "Decks//";//
     protected String path = "Decks/";//
+    private boolean makeCopy = false;
 
     GUInewDeckFrame()
     {
-        super("New Deck");
+        super("Enter new deck name");
 
         panel = new JPanel(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -34,6 +37,7 @@ public class GUInewDeckFrame extends JFrame implements ActionListener
         panel.add(saveName, c);
 
         updater = new JButton("temp");
+        copyDeck = new JButton("temp");
 
         //errorMessage = new JLabel();
         //c.gridy = 4;
@@ -58,12 +62,20 @@ public class GUInewDeckFrame extends JFrame implements ActionListener
 
             //find type of object that performed the action
             String ObjType = e.getSource().getClass().getName();
-            System.out.println(ObjType);
+            System.out.println(ObjType);/////
 
             //user pressed new deck button
             if(ObjType == "GUIcreateDeckButton")
             {
                 inputField.setText("");
+                makeCopy = false;
+                setVisible(true);
+            }
+
+            if(ObjType == "GUIcopyDeckButton")
+            {
+                inputField.setText("");
+                makeCopy = true;
                 setVisible(true);
             }
 
@@ -84,12 +96,18 @@ public class GUInewDeckFrame extends JFrame implements ActionListener
 
                 else
                 {
-                    File newDeck = new File(path + inputField.getText() + ".txt");
+                    String location = inputField.getText() + ".txt";
+                    File newDeck = new File(path + location);
                     if(!newDeck.createNewFile())
                         JOptionPane.showMessageDialog(warning, "File couldn't be created.");
                     else
                     {
                         this.setVisible(false);
+                        if(makeCopy == true)
+                        {
+                            copyName = location;
+                            copyDeck.doClick();
+                        }
                         updater.doClick();  //sends signal to update deck field and drop down menu
                     }
                 }
