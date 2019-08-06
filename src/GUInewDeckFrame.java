@@ -27,12 +27,15 @@ public class GUInewDeckFrame extends JFrame implements ActionListener
         inputField = new JTextField(30);
         c.gridx = 0;
         c.gridy = 0;
+        c.gridwidth = 5;
         c.weightx = 1;
         c.weighty = 1;
         panel.add(inputField, c);
 
         saveName = new JButton("Save");
-        c.gridx = 2;
+        c.gridx = 3;
+        c.gridy = 1;
+        this.getRootPane().setDefaultButton(saveName);
         saveName.addActionListener(this);
         panel.add(saveName, c);
 
