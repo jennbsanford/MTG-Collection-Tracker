@@ -49,13 +49,14 @@ public class GUInewDeckFrame extends JFrame implements ActionListener
         add(panel);
         pack();
         setResizable(false);//
+        setLocationRelativeTo(null);
     }
 
-    Boolean duplicate(String name)
+    /*Boolean duplicate(String name)
     {
 
         return false;
-    }
+    }*/
 
     public void actionPerformed(ActionEvent e)
     {

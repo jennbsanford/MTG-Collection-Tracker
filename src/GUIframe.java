@@ -20,6 +20,7 @@ public class GUIframe extends JFrame implements ActionListener
         //show frame on screen
         pack();
         setResizable(false);//
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 
