@@ -10,6 +10,7 @@ public class GUIdeckField extends JTextArea implements ActionListener
 {
     //private Object defaultMessage = "";
     private Boolean defaultMessage = true;
+    //protected JButton temp;
     protected String currentDeck = "";
     protected String path = "Decks/";
 
@@ -25,6 +26,7 @@ public class GUIdeckField extends JTextArea implements ActionListener
         c.weighty = 1;
         c.insets = new Insets(5, 5, 5,5);
 
+        //temp = new JButton();
         setEditable(false);
 
         append("Select a deck from above, or create a new one!");
@@ -79,13 +81,22 @@ public class GUIdeckField extends JTextArea implements ActionListener
             if(ObjType == "GUIdecksComboBox")
             {
                 GUIdecksComboBox names = (GUIdecksComboBox)e.getSource();
-                loadDeck((String) names.getSelectedItem());
+                //String defaultValue = (String)names.getSelectedItem();
+                //if(defaultValue.contains("Select a deck ("))
+                //System.out.println(names.getSelectedItem() + " yooooooooooo");
+                //System.out.println(names.getActionCommand() + " action");
+                //loadDeck((String)names.getSelectedItem());
 
                 //once first deck is selected, remove default message on drop down menu
-                if (defaultMessage == true) {
+                //if (defaultMessage == true) {
+                    //names.removeItem(names.getItemAt(0));
+                    //defaultMessage = false;
+                    //temp.doClick();
+                //}
+                String defaultValue = (String)names.getSelectedItem();
+                if(defaultValue.contains("Select a deck ("))
                     names.removeItem(names.getItemAt(0));
-                    defaultMessage = false;
-                }
+                loadDeck((String)names.getSelectedItem());
             }
 
             //user created a new deck
@@ -96,7 +107,7 @@ public class GUIdeckField extends JTextArea implements ActionListener
         }
         catch(Exception ex)
         {
-            //System.out.println(ex + "deckField");//////
+            System.out.println(ex + "deckField");//////
         }
     }
 }

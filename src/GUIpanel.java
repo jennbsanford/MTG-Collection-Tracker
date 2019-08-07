@@ -143,6 +143,22 @@ public class GUIpanel extends JPanel implements ActionListener
             }
         });
 
+        /*//invokes deck field update routine
+        deck.temp.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                try
+                {
+                    updateRecentDeck();
+                }
+                catch(Exception ex)
+                {
+                    System.out.println(e + "deckTempButton");
+                }
+            }
+        });*/
+
         //action listener for when a deck needs to be copied
         newDeckInput.copyDeck.addActionListener(new ActionListener() {
             @Override
