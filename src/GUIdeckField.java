@@ -99,10 +99,10 @@ public class GUIdeckField extends JTextArea implements ActionListener
                 loadDeck((String)names.getSelectedItem());
             }
 
-            //user created a new deck
+            //user pressed other button
             else if(ObjType == "javax.swing.JButton")
             {
-                this.setText("YARRRRRRR");
+                this.setText("otherButtonDeckField");
             }
         }
         catch(Exception ex)
