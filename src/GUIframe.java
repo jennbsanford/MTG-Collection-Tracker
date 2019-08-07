@@ -15,7 +15,6 @@ public class GUIframe extends JFrame implements ActionListener
         //create panel and add to frame
         mainPanel = new GUIpanel();
         add(mainPanel);
-        //mainPanel.createDeck.addActionListener(this);
 
         //show frame on screen
         pack();
@@ -31,6 +30,6 @@ public class GUIframe extends JFrame implements ActionListener
 
     public void actionPerformed(ActionEvent e)
     {
-        System.out.println("YOOOO");
+        System.out.println("FrameAction");
     }
 }
