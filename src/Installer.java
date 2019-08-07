@@ -6,7 +6,7 @@ public class Installer {
 
     public String path;
 
-    //checks current directory for files and creates them if needed
+    //checks current directory for files and folders and creates them if needed
     Installer()
     {
         try {
