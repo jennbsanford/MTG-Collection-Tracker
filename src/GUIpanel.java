@@ -7,6 +7,7 @@ import java.io.*;
 public class GUIpanel extends JPanel implements ActionListener
 {
     //text fields
+    protected JTextField input;
     protected GUIcollectionField collection;
     protected GUIdeckField deck;
 
@@ -14,16 +15,17 @@ public class GUIpanel extends JPanel implements ActionListener
     protected GUIdecksComboBox deckNames;
 
     //buttons
-    protected GUIcreateDeckButton createDeck;
     protected GUIaddToCollectionButton addToCollection;
     protected GUIremoveFromCollectionButton removeFromCollection;
     protected GUIaddToDeckButton addToDeck;
     protected GUIremoveFromDeckButton removeFromDeck;
+    protected GUIcreateDeckButton createDeck;
     protected GUIcopyDeckButton copyDeck;
     protected GUIdeleteDeckButton deleteDeck;
     protected GUIsaveAllButton saveAll;
+    protected GUIfindCardsButton findCards;
 
-    protected JTextField input;
+
 
     //windows
     private GUInewDeckFrame newDeckInput;
@@ -42,6 +44,10 @@ public class GUIpanel extends JPanel implements ActionListener
         GridBagConstraints c = new GridBagConstraints();
 
         //initialize components and add to panel
+        //user input field
+        input = new GUIuserInputField(c);
+        add(input, c);
+
         //collection field
         collection = new GUIcollectionField(c);
         add(new JScrollPane(collection), c);
@@ -90,6 +96,10 @@ public class GUIpanel extends JPanel implements ActionListener
         saveAll = new GUIsaveAllButton(c);
         //add(saveAll, c);
 
+        //find all copies of the card name in the input field
+        findCards = new GUIfindCardsButton(c);
+        add(findCards, c);
+
         //window for entering a name for a new deck
         newDeckInput = new GUInewDeckFrame();
         createDeck.addActionListener(newDeckInput);
@@ -102,15 +112,15 @@ public class GUIpanel extends JPanel implements ActionListener
 
 
         //user input field
-        input = new JTextField(40);
-        c.gridwidth = 30;
+        /*input = new JTextField(40);
+        c.gridwidth = 20;
         //c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 1;
         c.gridy = 0;
         c.weightx = 1;
         c.weighty = 1;
         c.insets = new Insets(5, 5, 5,5);
-        add(input, c);
+        add(input, c);*/
 
         //action listeners
         //newDeckInput.updater.addActionListener(deckNames);
@@ -168,23 +178,7 @@ public class GUIpanel extends JPanel implements ActionListener
             {
                 try
                 {
-                    System.out.println(path + deckNames.getSelectedItem());
-
-                    //FileInputStream is = new FileInputStream(path + deckNames.getSelectedItem());
-                    //is.close();
-
-
                     File deleteFile = new File(path + deckNames.getSelectedItem());
-                    /*FileReader deleteFileRead = new FileReader(deleteFile);
-                    BufferedReader dfrBuffer = new BufferedReader(deleteFileRead);
-
-                    dfrBuffer.close();
-                    dfrBuffer = null;
-                    deleteFileRead.close();
-                    deleteFileRead = null;*/
-                    //if(deleteFile.exists())
-                    //if(deleteFile.canWrite())
-                        //System.out.println("file writeable");
                     if(!deleteFile.delete())
                         System.out.println("deck couldnt be deleted");
                     updateRecentDeck();
