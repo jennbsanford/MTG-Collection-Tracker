@@ -22,6 +22,7 @@ public class CubeList extends Decklist {
     }
 
     public void print() {
+        super.print();
         Iterator iter = cardList.iterator();
         while (iter.hasNext())
         {

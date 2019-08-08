@@ -1,13 +1,13 @@
+import java.util.Vector;
+
 public class Main {
 
 	public static void main(String[] args) {
-
-		CubeList myCube = new CubeList();
-		myCube.addCard("Dark Ritual");
-		myCube.addCard("Ponder");
-		myCube.addCard("Preordain");
-		myCube.print();
-		//obj.displayAllCards(mainFrame.mainPanel.collection);
+		MasterDecklist test = new MasterDecklist();
+		ListParser parse = new ListParser();
+		Vector list = parse.parseMasterList();
+		test = parse.parseAllDecklists(list);
+		test.display();
 	}
 
 }

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class MasterDecklist {
 
@@ -18,4 +19,12 @@ public class MasterDecklist {
         }
     }
 
+    public void display() {
+        Iterator iter = masterList.iterator();
+        while (iter.hasNext()) {
+            Decklist deck = (Decklist) iter.next();
+            deck.print();
+            System.out.println("\n\n");
+        }
+    }
 }

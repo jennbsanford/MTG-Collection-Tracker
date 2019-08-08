@@ -17,4 +17,8 @@ public class Decklist {
         return listName;
     }
 
+    public void print() {
+        System.out.println(listName);
+    }
+
 }

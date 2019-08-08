@@ -30,6 +30,7 @@ public class EDHList extends Decklist {
     }
 
     public void print() {
+        super.print();
         System.out.println("Commander: " + commander);
         System.out.println("Mainboard: ");
         Iterator iter = cardList.iterator();

@@ -18,7 +18,7 @@ public class StandardList extends Decklist {
         else {
             Card obj = new Card();
             obj.setCard(cardName, quantity);
-            if (mainOrSide == "main")
+            if (mainOrSide.equals("Main"))
                 maindeck.add(obj);
             else
                 sideboard.add(obj);
@@ -27,7 +27,8 @@ public class StandardList extends Decklist {
     }
 
     public void print() {
-        System.out.println("Mainboard: \n");
+        super.print();
+        System.out.println("Mainboard:");
         Iterator iter = maindeck.iterator();
         while (iter.hasNext())
         {
@@ -36,7 +37,7 @@ public class StandardList extends Decklist {
             System.out.println();
         }
 
-        System.out.println("Sideboard: \n");
+        System.out.println("\nSideboard: ");
         iter = sideboard.iterator();
         while (iter.hasNext())
         {
