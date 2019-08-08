@@ -21,4 +21,10 @@ public class Decklist {
         System.out.println(listName);
     }
 
+    public Decklist copy(Decklist copyFrom) {return null;}
+
+    public String getType() {
+        return "Decklist";
+    }
+
 }

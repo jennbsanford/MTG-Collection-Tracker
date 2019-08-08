@@ -46,4 +46,15 @@ public class StandardList extends Decklist {
             System.out.println();
         }
     }
+
+    public void copyHere(Decklist copyFrom) {
+        changeName(copyFrom.getName());
+        maindeck = (Vector<Card>) ((StandardList)copyFrom).maindeck.clone();
+        sideboard = (Vector<Card>) ((StandardList)copyFrom).maindeck.clone();
+    }
+
+    public String getType() {
+        return "StandardList";
+    }
+
 }

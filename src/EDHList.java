@@ -32,7 +32,7 @@ public class EDHList extends Decklist {
     public void print() {
         super.print();
         System.out.println("Commander: " + commander);
-        System.out.println("Mainboard: ");
+        System.out.println("Decklist: ");
         Iterator iter = cardList.iterator();
         while (iter.hasNext())
         {
@@ -40,6 +40,16 @@ public class EDHList extends Decklist {
             mycard.print();
             System.out.println();
         }
+    }
+
+    public void copyHere(Decklist copyFrom) {
+        changeName(copyFrom.getName());
+        this.commander = ((EDHList)copyFrom).commander;
+        cardList = (Vector<Card>) ((EDHList)copyFrom).cardList.clone();
+    }
+
+    public String getType() {
+        return "EDHList";
     }
 
 }

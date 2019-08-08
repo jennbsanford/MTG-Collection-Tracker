@@ -37,24 +37,60 @@ public class MasterDecklist {
         if (deckname == null)
             return -1;
 
-        boolean found = false;
-        Iterator iter = masterList.iterator();
-        while (iter.hasNext() && !found) {
-            Decklist deck = (Decklist) iter.next();
-            if (deck.getName().equals(deckname)) {
-                found = true;
-                masterList.remove(deck);
-            }
-        }
-        if (found) {
+        Decklist found = findDeck(deckname);
+        if (found != null) {
+            masterList.remove(found);
             return 1;
         }
         else
             return 0;
     }
 
+    public int copyDecklist(String original, String copy) {
+        if (original == null || copy == null) {
+            return -1;
+        }
+
+        Decklist copyFrom = findDeck(original);
+
+        if (copyFrom == null) {
+            return 0;
+        }
+        else if (copyFrom.getType().equals("StandardList")) {
+            StandardList deck = new StandardList();
+            deck.copyHere(copyFrom);
+            deck.changeName(copy);
+            masterList.add(deck);
+        }
+        else if (copyFrom.getType().equals("EDHList")) {
+            EDHList deck = new EDHList();
+            deck.copyHere(copyFrom);
+            deck.changeName(copy);
+            masterList.add(deck);
+        }
+        else if (copyFrom.getType().equals("CubeList")) {
+            CubeList deck = new CubeList();
+            deck.copyHere(copyFrom);
+            deck.changeName(copy);
+            masterList.add(deck);
+        }
+
+        return 1;
+
+    }
 
 
+    private Decklist findDeck(String toFind) {
+
+        Iterator iter = masterList.iterator();
+        while (iter.hasNext()) {
+            Decklist deck = (Decklist) iter.next();
+            if (deck.getName().equals(toFind)) {
+                return deck;
+            }
+        }
+        return null;
+    }
 
     public boolean addDeck(Decklist toAdd) {
         if (toAdd == null)

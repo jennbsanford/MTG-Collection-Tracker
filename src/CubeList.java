@@ -32,4 +32,13 @@ public class CubeList extends Decklist {
         }
     }
 
+    public void copyHere(Decklist copyFrom) {
+        changeName(copyFrom.getName());
+        cardList = (Vector<Card>) ((CubeList)copyFrom).cardList.clone();
+    }
+
+    public String getType() {
+        return "CubeList";
+    }
+
 }
