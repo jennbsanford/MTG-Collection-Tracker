@@ -41,4 +41,19 @@ public class CubeList extends Decklist {
         return "CubeList";
     }
 
+    public String toString() {
+        String result = new String();
+        result += "Deck name: " + super.getName() + "\n";
+        result += "\nDecklist:\n";
+        Iterator iter = cardList.iterator();
+        while (iter.hasNext())
+        {
+            Card mycard = (Card) iter.next();
+            result += Character.forDigit(mycard.getQuantity(), 10) + " ";
+            result += mycard.getName() + "\n";
+        }
+
+        return result;
+    }
+
 }

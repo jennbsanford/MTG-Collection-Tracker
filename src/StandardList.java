@@ -57,4 +57,28 @@ public class StandardList extends Decklist {
         return "StandardList";
     }
 
+    public String toString() {
+        String result = new String();
+        result += "Deck name: " + super.getName();
+        result += "\nMainboard:\n";
+        Iterator iter = maindeck.iterator();
+        while (iter.hasNext())
+        {
+            Card mycard = (Card) iter.next();
+            result += Character.forDigit(mycard.getQuantity(), 10) + " ";
+            result += mycard.getName() + "\n";
+        }
+
+        result += "\nSideboard:\n";
+        iter = sideboard.iterator();
+        while (iter.hasNext())
+        {
+            Card mycard = (Card) iter.next();
+            result += Character.forDigit(mycard.getQuantity(), 10) + " ";
+            result += mycard.getName() + "\n";
+        }
+
+        return result;
+    }
+
 }

@@ -79,6 +79,15 @@ public class MasterDecklist {
 
     }
 
+    public String getString(String deckName) {
+        if (deckName == null)
+            return null;
+        Decklist deck = findDeck(deckName);
+        if (deck == null) {
+            return null;
+        }
+        return deck.toString();
+    }
 
     private Decklist findDeck(String toFind) {
 

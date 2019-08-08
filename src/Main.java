@@ -11,11 +11,6 @@ public class Main {
 		Vector list = parse.parseMasterList();
 		masterDecklist = parse.parseAllDecklists(list);
 		//masterCollectionList = parse.parseCollection();
-		//masterDecklist.removeDecklist("Boros Burn");
-
-		masterDecklist.display();
-		masterDecklist.copyDecklist("Azami, Lady of Scrolls", "Big Dummy Dumb Dumb");
-		masterDecklist.display();
 
 		// INSERT YOUR CODE HERE DYLAN!
 	}

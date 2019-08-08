@@ -27,4 +27,8 @@ public class Decklist {
         return "Decklist";
     }
 
+    public String toString() {
+        return listName;
+    }
+
 }
