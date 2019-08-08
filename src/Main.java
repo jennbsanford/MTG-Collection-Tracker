@@ -1,13 +1,17 @@
 import java.util.Vector;
+import java.util.Iterator;
 
 public class Main {
 
 	public static void main(String[] args) {
-		MasterDecklist test = new MasterDecklist();
+
+		// parse all data decklist and collection data from .txt files
+		MasterDecklist masterDecklist = new MasterDecklist();
 		ListParser parse = new ListParser();
 		Vector list = parse.parseMasterList();
-		test = parse.parseAllDecklists(list);
-		test.display();
-	}
+		masterDecklist = parse.parseAllDecklists(list);
+		//masterCollectionList = parse.parseCollection();
 
+		// INSERT YOUR CODE HERE DYLAN!
+	}
 }

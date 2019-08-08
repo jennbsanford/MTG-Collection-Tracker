@@ -22,7 +22,7 @@ public class ListParser {
             File myFile = new File("MasterDecklist.txt");
             BufferedReader br = new BufferedReader(new FileReader(myFile));
 
-            String str = new String();
+            String str;
             while (((str = br.readLine()) != null)) {
                 decks.add(str);
             }
@@ -39,6 +39,7 @@ public class ListParser {
             System.out.print("parseAllDecklists() received NULL argument!");
             return null;
         }
+
         MasterDecklist data = new MasterDecklist();
         Decklist current;
 

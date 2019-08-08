@@ -37,7 +37,7 @@ public class StandardList extends Decklist {
             System.out.println();
         }
 
-        System.out.println("\nSideboard: ");
+        System.out.println("\nSideboard:");
         iter = sideboard.iterator();
         while (iter.hasNext())
         {
