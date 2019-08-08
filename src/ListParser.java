@@ -19,7 +19,7 @@ public class ListParser {
             // opens file to be read
             //File myFile = new File("C:\\Users\\Ryan\\IdeaProjects\\A4\\src\\com\\company\\dataFile.txt");
             //Path filePath = Paths.get("file.txt");
-            File myFile = new File("MasterDecklist.txt");
+            File myFile = new File("Decks/MasterDecklist.txt");
             BufferedReader br = new BufferedReader(new FileReader(myFile));
 
             String str;
@@ -60,7 +60,7 @@ public class ListParser {
         try {
 
             // opens file to be read
-            File myFile = new File(listName + ".txt");
+            File myFile = new File("Decks/" + listName + ".txt");
             BufferedReader br = new BufferedReader(new FileReader(myFile));
             Decklist list = null;
 
@@ -102,7 +102,6 @@ public class ListParser {
         StandardList result = new StandardList();
         String str;
         String mainOrSide = "Main";
-        int quantity = 0;
         try {
             while (((str = br.readLine()) != null)) {
                 if (str.equals("Main")) {
@@ -112,8 +111,16 @@ public class ListParser {
                     mainOrSide = "Side";
                 }
                 else {
-                    quantity = Character.getNumericValue(str.charAt(0));
-                    result.addCard(str.substring(2), quantity, mainOrSide);
+                    String quantity = new String();
+                    int ctr = 0;
+                    while (str.charAt(ctr) != ' ')
+                    {
+                        quantity += str.charAt(ctr);
+                        ctr++;
+                    }
+                    int num = Integer.parseInt(quantity);
+
+                    result.addCard(str.substring(ctr+1), num, mainOrSide);
                 }
             }
 
