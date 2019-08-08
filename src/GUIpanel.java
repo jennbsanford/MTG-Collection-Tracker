@@ -29,6 +29,7 @@ public class GUIpanel extends JPanel implements ActionListener
 
     //windows
     private GUInewDeckFrame newDeckInput;
+    private GUIfindCardsFrame findCardsWindow;
 
     protected String path = "Decks/";
 
@@ -98,7 +99,11 @@ public class GUIpanel extends JPanel implements ActionListener
 
         //find all copies of the card name in the input field
         findCards = new GUIfindCardsButton(c);
+        //findCards.addActionListener(findCardsWindow);
         add(findCards, c);
+
+        //window that shows all locations for entered card
+        findCardsWindow = new GUIfindCardsFrame();
 
         //window for entering a name for a new deck
         newDeckInput = new GUInewDeckFrame();
@@ -123,6 +128,7 @@ public class GUIpanel extends JPanel implements ActionListener
         add(input, c);*/
 
         //action listeners
+        //findCards.addActionListener(findCardsWindow);
         //newDeckInput.updater.addActionListener(deckNames);
         //newDeckInput.updater.addActionListener(this);
         //newDeckInput.copyDeck.addActionListener(this);
@@ -143,21 +149,22 @@ public class GUIpanel extends JPanel implements ActionListener
             }
         });
 
-        /*//invokes deck field update routine
-        deck.temp.addActionListener(new ActionListener() {
+        //invokes deck field update routine
+        findCards.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
                 try
                 {
-                    updateRecentDeck();
+                    System.out.println("findCardActionListener");
+                    findCardsWindow.findCard("DoomBlade");
                 }
                 catch(Exception ex)
                 {
-                    System.out.println(e + "deckTempButton");
+                    System.out.println(e + "findCardsButton");
                 }
             }
-        });*/
+        });
 
         //action listener for when a deck needs to be copied
         newDeckInput.copyDeck.addActionListener(new ActionListener() {
