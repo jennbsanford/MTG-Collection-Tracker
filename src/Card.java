@@ -31,6 +31,14 @@ public class Card {
         return quantity;
     }
 
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public void decrementQuantity() {
+        quantity -= 1;
+    }
+
     public void print() {
         System.out.print(quantity + " " + name);
     }

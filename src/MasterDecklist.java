@@ -89,6 +89,42 @@ public class MasterDecklist {
         return deck.toString();
     }
 
+    public int addCardToMain(String deckname, String cardname) {
+        if (deckname == null || cardname == null)
+            return -1;
+
+        StandardList found = (StandardList) findDeck(deckname);
+        if (found == null)
+            return 0;
+
+        found.addCard(cardname, 1, "Main");
+        return 1;
+    }
+
+    public int addCardToSide(String deckname, String cardname) {
+        if (deckname == null || cardname == null)
+            return -1;
+
+        StandardList found = (StandardList) findDeck(deckname);
+        if (found == null)
+            return 0;
+
+        found.addCard(cardname, 1, "Side");
+        return 1;
+    }
+
+    public int removeCard(String deckname, String cardname, String MainOrSide) {
+        if (deckname == null || cardname == null)
+            return -1;
+
+        StandardList found = (StandardList) findDeck(deckname);
+        if (found == null)
+            return 0;
+
+        found.removeCard(cardname, 1, MainOrSide);
+        return 1;
+    }
+
     private Decklist findDeck(String toFind) {
 
         Iterator iter = masterList.iterator();

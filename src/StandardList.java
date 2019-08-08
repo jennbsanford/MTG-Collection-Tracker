@@ -26,6 +26,44 @@ public class StandardList extends Decklist {
         }
     }
 
+    public boolean removeCard(String cardName, int quantity, String mainOrSide) {
+        if (cardName == null || quantity < 1)
+            return false;
+        else {
+            Card obj = findCard(cardName);
+            if (obj == null) {
+                return false;
+            }
+            if (obj.getQuantity() > 1) {
+                obj.decrementQuantity();
+                return true;
+            }
+            else if (mainOrSide.equals("Main"))
+                maindeck.remove(obj);
+            else
+                sideboard.remove(obj);
+            return true;
+        }
+    }
+
+    public Card findCard(String cardName) {
+        Iterator iter = maindeck.iterator();
+        while (iter.hasNext()) {
+            Card mycard = (Card) iter.next();
+            if (mycard.getName().equals(cardName)) {
+                return mycard;
+            }
+        }
+        Iterator iter2 = sideboard.iterator();
+        while (iter2.hasNext()) {
+            Card mycard = (Card) iter2.next();
+            if (mycard.getName().equals(cardName)) {
+                return mycard;
+            }
+        }
+        return null;
+    }
+
     public void print() {
         super.print();
         System.out.println("Mainboard:");
