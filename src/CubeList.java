@@ -43,7 +43,6 @@ public class CubeList extends Decklist {
 
     public String toString() {
         String result = new String();
-        result += "Deck name: " + super.getName() + "\n";
         result += "\nDecklist:\n";
         Iterator iter = cardList.iterator();
         while (iter.hasNext())

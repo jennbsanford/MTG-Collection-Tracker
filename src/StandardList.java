@@ -97,7 +97,6 @@ public class StandardList extends Decklist {
 
     public String toString() {
         String result = new String();
-        result += "Deck name: " + super.getName();
         result += "\nMainboard:\n";
         Iterator iter = maindeck.iterator();
         while (iter.hasNext())

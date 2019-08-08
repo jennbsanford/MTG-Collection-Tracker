@@ -54,7 +54,6 @@ public class EDHList extends Decklist {
 
     public String toString() {
         String result = new String();
-        result += "Deck name: " + super.getName() + "\n";
         result += "Commander: " + commander;
         result += "\nDecklist:\n";
         Iterator iter = cardList.iterator();
