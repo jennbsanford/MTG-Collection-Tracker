@@ -1,2 +1,4 @@
-deck1
-deck2
+Boros Burn
+Azami, Lady of Scrolls
+Modern Cube
+UR Phoenix

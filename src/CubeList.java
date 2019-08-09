@@ -21,6 +21,18 @@ public class CubeList extends Decklist {
         }
     }
 
+    public Card findCard(String cardName) {
+        Iterator iter = cardList.iterator();
+        while (iter.hasNext()) {
+            Card mycard = (Card) iter.next();
+            if (mycard.getName().equals(cardName)) {
+                return mycard;
+            }
+        }
+        return null;
+    }
+
+
     public void print() {
         super.print();
         Iterator iter = cardList.iterator();

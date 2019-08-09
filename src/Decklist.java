@@ -23,6 +23,10 @@ public class Decklist {
 
     public Decklist copy(Decklist copyFrom) {return null;}
 
+    public Card findCard(String cardName) {
+        return null;
+    }
+
     public String getType() {
         return "Decklist";
     }

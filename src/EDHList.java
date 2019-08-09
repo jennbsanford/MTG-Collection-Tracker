@@ -22,6 +22,17 @@ public class EDHList extends Decklist {
         }
     }
 
+    public Card findCard(String cardName) {
+        Iterator iter = cardList.iterator();
+        while (iter.hasNext()) {
+            Card mycard = (Card) iter.next();
+            if (mycard.getName().equals(cardName)) {
+                return mycard;
+            }
+        }
+        return null;
+    }
+
     public boolean addCommander(String commander) {
         if (commander == null)
             return false;

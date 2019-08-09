@@ -49,6 +49,19 @@ public class MasterCollection {
         return result;
     }
 
+    public int numCopies(String cardName) {
+        if (cardName == null)
+            return -1;
+        Iterator iter = collection.iterator();
+        while(iter.hasNext()) {
+            CollectedCard current = (CollectedCard) iter.next();
+            if (current.getName().equals(cardName)) {
+                return current.getQuantity();
+            }
+        }
+        return 0;
+    }
+
     public void displayAll() {
         Iterator iter = collection.iterator();
         while(iter.hasNext()) {

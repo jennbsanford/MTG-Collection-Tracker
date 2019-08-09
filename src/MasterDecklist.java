@@ -130,6 +130,25 @@ public class MasterDecklist {
         return 1;
     }
 
+    public Vector<nameQuantity> findCardEverywhere(String cardName) {
+
+        Vector<nameQuantity> result = new Vector<nameQuantity>();
+
+        Iterator iter = masterList.iterator();
+        while (iter.hasNext()) {
+            Decklist deck = (Decklist) iter.next();
+            Card current = deck.findCard(cardName);
+            if (current != null) {
+                nameQuantity data = new nameQuantity();
+                data.deckName = deck.getName();
+                data.quantity = current.getQuantity();
+                result.add(data);
+            }
+        }
+
+        return result;
+    }
+
     private Decklist findDeck(String toFind) {
 
         Iterator iter = masterList.iterator();
@@ -162,3 +181,4 @@ public class MasterDecklist {
     }
 
 }
+
