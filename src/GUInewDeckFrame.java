@@ -87,7 +87,7 @@ public class GUInewDeckFrame extends JFrame implements ActionListener
             }
 
             //user pressed save button
-            if(ObjType == "javax.swing.JButton")
+            /*if(ObjType == "javax.swing.JButton")
             {
                 //System.out.println(inputField.getText() + "hello");
                 //errorMessage.setText("Name already in use!");
@@ -117,10 +117,10 @@ public class GUInewDeckFrame extends JFrame implements ActionListener
                         }
                         updater.doClick();  //sends signal to update deck field and drop down menu
                     }
-                }*/
+                }
 
                 //JOptionPane.showMessageDialog(warning, "Name already in use.");
-            }
+            }*/
         }
         catch(Exception ex)
         {

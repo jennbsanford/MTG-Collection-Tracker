@@ -164,19 +164,19 @@ public class GUIpanel extends JPanel implements ActionListener
             {
                 try
                 {
+                    String newName = newDeckInput.inputField.getText();
                     JFrame warning = new JFrame();
                     if(newDeckInput.inputField.getText().isEmpty())
                         JOptionPane.showMessageDialog(warning, "Name cannot be blank.");
 
-                    String newName = newDeckInput.inputField.getText();
-
-                    if(!newDeckInput.makeCopy)
+                    else if(!newDeckInput.makeCopy)
                     {
                         //attempt to create new deck with input name
                         if (masterList.createStandardDecklist(newName) < 0)
                             JOptionPane.showMessageDialog(warning, "File couldn't be created.");
                         else
                         {
+                            //remove input frame and update deck field
                             newDeckInput.setVisible(false);
                             deckNames.loadNames(masterList.allDeckNames());
                             deckNames.setSelectedItem(newName);
@@ -189,6 +189,7 @@ public class GUIpanel extends JPanel implements ActionListener
                             JOptionPane.showMessageDialog(warning, "File couldn't be created.");
                         else
                         {
+                            //remove input frame and update deck field
                             newDeckInput.setVisible(false);
                             deckNames.loadNames(masterList.allDeckNames());
                             deckNames.setSelectedItem(newName);
