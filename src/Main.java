@@ -14,5 +14,13 @@ public class Main {
 		masterCollection = parse.parseMasterCollection();
 
 		// INSERT YOUR CODE HERE DYLAN!
+		try
+		{
+			GUIframe frame = new GUIframe(masterDecklist);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e + " Main");
+		}
 	}
 }

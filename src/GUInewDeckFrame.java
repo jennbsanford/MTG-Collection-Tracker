@@ -67,7 +67,7 @@ public class GUInewDeckFrame extends JFrame implements ActionListener
 
             //find type of object that performed the action
             String ObjType = e.getSource().getClass().getName();
-            System.out.println(ObjType);/////
+            //System.out.println(ObjType + "hello");/////
 
             //user pressed new deck button
             if(ObjType == "GUIcreateDeckButton")

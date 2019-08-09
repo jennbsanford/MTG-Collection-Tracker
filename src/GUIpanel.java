@@ -6,6 +6,9 @@ import java.io.*;
 
 public class GUIpanel extends JPanel implements ActionListener
 {
+    //master list of decks
+    private MasterDecklist masterList;
+
     //text fields
     protected JTextField input;
     protected GUIcollectionField collection;
@@ -36,10 +39,13 @@ public class GUIpanel extends JPanel implements ActionListener
     //protected JButton temp;//
     //protected JButton temp2;//
 
-    GUIpanel() throws Exception
+    GUIpanel(MasterDecklist lists) throws Exception
     {
         //setup panel layout
         super(new GridBagLayout());
+
+        //gain access to the masterList
+        masterList = lists;
 
         //ready constraints
         GridBagConstraints c = new GridBagConstraints();
@@ -55,11 +61,12 @@ public class GUIpanel extends JPanel implements ActionListener
 
         //deck list field
         deck = new GUIdeckField(c);
+        deck.loadDeck(masterList.getString(masterList.allDeckNames().elementAt(0)));
         add(new JScrollPane(deck), c);
 
         //deck list drop down menu
-        deckNames = new GUIdecksComboBox(c);
-        deckNames.addActionListener(deck);
+        deckNames = new GUIdecksComboBox(c, masterList.allDeckNames());
+        //deckNames.addActionListener(deck);
         //newDeckInput.updater.addActionListener(deckNames);
         add(deckNames, c);
 
@@ -133,6 +140,23 @@ public class GUIpanel extends JPanel implements ActionListener
         //newDeckInput.updater.addActionListener(this);
         //newDeckInput.copyDeck.addActionListener(this);
 
+        deckNames.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                try
+                {
+                    //String wholeList = deckNames.getSelectedIndex()
+                    deck.loadDeck(masterList.getString((String)deckNames.getSelectedItem()));
+                    //deckNames.getSelectedItem();
+                }
+                catch(Exception ex)
+                {
+                    System.out.println(e + "comboBoxSelectionPanel");
+                }
+            }
+        });
+
         //invokes deck field update routine
         newDeckInput.updater.addActionListener(new ActionListener() {
             @Override
@@ -156,7 +180,7 @@ public class GUIpanel extends JPanel implements ActionListener
             {
                 try
                 {
-                    System.out.println("findCardActionListener");
+                    //System.out.println("findCardActionListener");
                     findCardsWindow.findCard("DoomBlade");
                 }
                 catch(Exception ex)
@@ -256,7 +280,7 @@ public class GUIpanel extends JPanel implements ActionListener
 
             //update components
             deck.loadDeck(mostRecent.getName());
-            deckNames.loadNames();
+            //deckNames.loadNames();
             deckNames.setSelectedItem(mostRecent.getName());
         }
         catch(Exception e)
@@ -289,7 +313,7 @@ public class GUIpanel extends JPanel implements ActionListener
         }
         catch(Exception ex)
         {
-            System.out.println(ex + "deckField");//////
+            System.out.println(ex + " panelGeneralListener");//////
         }
     }
 

@@ -1,18 +1,21 @@
-4x Coat of Arms
-2x Doubling Season
-3x Elvish Archdruid
-4x Elvish Promenade
-1x Emrakul, the Aeons Torn
-19x Forest
-4x Fyndhorn Elves
-1x Gaea's Cradle
-2x Heritage Druid
-2x Immaculate Magistrate
-2x Joraga Warcaller
-2x Lead the Stampede
-4x Llanowar Elves
-1x Pendelhaven
-4x Priest of Titania
-2x Rhys the Redeemed
-1x Rofellos, Llanowar Emissary
-2x Wirewood Lodge
+Standard
+Main
+4 Coat of Arms
+2 Doubling Season
+3 Elvish Archdruid
+4 Elvish Promenade
+1 Emrakul, the Aeons Torn
+1 Forest
+4 Fyndhorn Elves
+1 Gaea's Cradle
+2 Heritage Druid
+2 Immaculate Magistrate
+2 Joraga Warcaller
+2 Lead the Stampede
+4 Llanowar Elves
+Side
+1 Pendelhaven
+4 Priest of Titania
+2 Rhys the Redeemed
+1 Rofellos, Llanowar Emissary
+2 Wirewood Lodge

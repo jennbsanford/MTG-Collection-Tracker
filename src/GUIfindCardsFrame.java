@@ -42,7 +42,7 @@ public class GUIfindCardsFrame extends JFrame implements ActionListener
 
     protected void findCard(String cardName)
     {
-        System.out.println("findCardRoutine");
+        //System.out.println("findCardRoutine");
         setVisible(true);
     }
 

@@ -1,15 +1,18 @@
-3x Aqueous Form
-4x Boomerang
-4x Brainstorm
-4x Cephalid Constable
-4x Counterspell
-3x Distortion Strike
-1x Halimar Depths
-19x Island
-3x Isochron Scepter
-3x Jhessian Thief
-4x Spectral Flight
-1x Temporal Mastery
-2x Thassa, God of the Sea
-2x Vapor Snag
-3x Wings of Velis Vel
+Standard
+Main
+3 Aqueous Form
+4 Boomerang
+4 Brainstorm
+4 Cephalid Constable
+4 Counterspell
+3 Distortion Strike
+1 Halimar Depths
+1 Island
+3 Isochron Scepter
+3 Jhessian Thief
+4 Spectral Flight
+1 Temporal Mastery
+2 Thassa, God of the Sea
+Side
+2 Vapor Snag
+3 Wings of Velis Vel
