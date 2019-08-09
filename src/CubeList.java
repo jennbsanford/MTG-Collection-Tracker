@@ -48,7 +48,7 @@ public class CubeList extends Decklist {
         while (iter.hasNext())
         {
             Card mycard = (Card) iter.next();
-            result += Character.forDigit(mycard.getQuantity(), 10) + " ";
+            result += mycard.getQuantity() + " ";
             result += mycard.getName() + "\n";
         }
 

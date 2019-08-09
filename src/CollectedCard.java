@@ -6,7 +6,12 @@ public class CollectedCard extends Card {
 
     public CollectedCard() {
         super();
-        locations = null;
+        locations = new Vector<String>();
+    }
+
+    public CollectedCard(String cardname, int quantity) {
+        super(cardname, quantity);
+        locations = new Vector<String>();
     }
 
     public boolean setLocation(String setTo) {

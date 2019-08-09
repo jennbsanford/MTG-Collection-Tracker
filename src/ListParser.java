@@ -1,24 +1,18 @@
 import java.io.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Iterator;
 import java.util.Vector;
-import java.lang.Object;
 
 public class ListParser {
 
-    public ListParser() {
-
-    }
+    public ListParser() { }
 
     public Vector<String> parseMasterList() {
 
         Vector<String> decks = new Vector<String>();
 
         try {
+
             // opens file to be read
-            //File myFile = new File("C:\\Users\\Ryan\\IdeaProjects\\A4\\src\\com\\company\\dataFile.txt");
-            //Path filePath = Paths.get("file.txt");
             File myFile = new File("Decks/MasterDecklist.txt");
             BufferedReader br = new BufferedReader(new FileReader(myFile));
 
@@ -35,6 +29,7 @@ public class ListParser {
     }
 
     public MasterDecklist parseAllDecklists(Vector<String> decks) {
+
         if (decks == null) {
             System.out.print("parseAllDecklists() received NULL argument!");
             return null;
@@ -51,6 +46,33 @@ public class ListParser {
             if (current == null)
                 System.out.println("Failed to parse decklist: " + deck);
             data.addDeck(current);
+        }
+
+        return data;
+    }
+
+    public MasterCollection parseMasterCollection() {
+
+        MasterCollection data = new MasterCollection();
+
+        try {
+            File myFile = new File("Decks/Collection.txt");
+            BufferedReader br = new BufferedReader(new FileReader(myFile));
+
+            String str;
+            while (((str = br.readLine()) != null)) {
+                String quantity = new String();
+                int ctr = 0;
+                while (str.charAt(ctr) != ' ')
+                {
+                    quantity += str.charAt(ctr);
+                    ctr++;
+                }
+                int num = Integer.parseInt(quantity);
+                data.addCard(str.substring(ctr+1), num);
+            }
+        } catch (IOException x) {
+            System.out.println("Failed to open Collection.txt");
         }
 
         return data;

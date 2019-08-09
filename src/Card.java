@@ -4,10 +4,13 @@ public class Card {
     private int quantity;
 
     public Card() {
-
         name = null;
         quantity = 0;
+    }
 
+    public Card(String name, int quantity) {
+        this.name = name;
+        this.quantity = quantity;
     }
 
     // sets fields to the passed values
