@@ -13,6 +13,14 @@ public class Main {
 		masterDecklist = parse.parseAllDecklists(list);
 		masterCollection = parse.parseMasterCollection();
 
+		masterDecklist.createStandardDecklist("Boros Burn");
+		Vector<String> a = masterDecklist.allDeckNames();
+		Iterator iter = a.iterator();
+		while (iter.hasNext()) {
+			String str = (String) iter.next();
+			System.out.println(str);
+		}
+
 		// INSERT YOUR CODE HERE DYLAN!
 	}
 }

@@ -27,8 +27,13 @@ public class MasterDecklist {
         if (deckname == null)
             return -1;
 
+        if (findDeck(deckname) != null) {
+            return 0;
+        }
+
         StandardList deck = new StandardList();
         deck.changeName(deckname);
+
         masterList.add(deck);
         return 1;
     }
@@ -155,4 +160,5 @@ public class MasterDecklist {
             System.out.println("\n\n");
         }
     }
+
 }
