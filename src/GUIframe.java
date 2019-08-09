@@ -5,20 +5,27 @@ import java.awt.event.ActionListener;
 public class GUIframe extends JFrame implements ActionListener
 {
     protected GUIpanel mainPanel;
+    //protected MasterDecklist masterList;
 
-    public GUIframe() throws Exception
+    public GUIframe(MasterDecklist master) throws Exception
     {
         //set title and have program exit when window is closed
         super("MTG Collection Tracker");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        //masterList = master;
+        //masterList.createStandardDecklist("deckA");
+        //masterList.createStandardDecklist("deckB");
+        //for(int i = 0; i < masterList.allDeckNames().size(); i++)
+        //    System.out.println(masterList.allDeckNames().elementAt(i) + "frame");
+        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //create panel and add to frame
-        mainPanel = new GUIpanel();
+        mainPanel = new GUIpanel(master);
         add(mainPanel);
 
         //show frame on screen
         pack();
-        setResizable(false);//
+        setResizable(false);
         setLocationRelativeTo(null);
         setVisible(true);
     }

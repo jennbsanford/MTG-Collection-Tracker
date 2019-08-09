@@ -29,11 +29,19 @@ public class GUIdeckField extends JTextArea implements ActionListener
         //temp = new JButton();
         setEditable(false);
 
-        append("Select a deck from above, or create a new one!");
+        //append("Select a deck from above, or create a new one!");
     }
 
     //displays selected deck in deck field
-    public void loadDeck(String filename) throws Exception
+    protected void loadDeck(String list) throws Exception
+    {
+        //display deck list in field
+        setText(list);
+        setCaretPosition(0);
+    }
+
+    //displays selected deck in deck field
+    /*public void loadDeck(String filename) throws Exception
     {
         currentDeck = filename;
         //String location = "C:\\Users\\Dylan\\Desktop\\Decks\\" + filename;
@@ -43,9 +51,9 @@ public class GUIdeckField extends JTextArea implements ActionListener
 
         File newFile = new File(location);
         BufferedReader reader = new BufferedReader(new FileReader(newFile));
-        read(reader, newFile);
+        this.read(reader, newFile);
         reader.close();
-    }
+    }*/
 
     /*//looks through directory for the last modified deck and loads it
     protected void loadRecentDeck() throws Exception
@@ -72,7 +80,7 @@ public class GUIdeckField extends JTextArea implements ActionListener
     {
         try
         {
-            //System.out.println(action.getClass());
+            /*//System.out.println(action.getClass());
 
             //find type of object that performed the action
             String ObjType = e.getSource().getClass().getName();
@@ -82,9 +90,14 @@ public class GUIdeckField extends JTextArea implements ActionListener
             {
                 GUIdecksComboBox names = (GUIdecksComboBox)e.getSource();
 
-                String defaultValue = (String)names.getSelectedItem();
-                if(defaultValue.contains("Select a deck ("))
+                //remove default message
+                //String defaultValue = (String)names.getSelectedItem();
+                //if(defaultValue.contains("Select a deck (") || defaultMessage)
+                /*if(defaultMessage)
+                {
                     names.removeItem(names.getItemAt(0));
+                    defaultMessage = false;
+                }
 
                 loadDeck((String)names.getSelectedItem());
             }
@@ -93,11 +106,11 @@ public class GUIdeckField extends JTextArea implements ActionListener
             else if(ObjType == "javax.swing.JButton")
             {
                 this.setText("otherButtonDeckField");
-            }
+            }*/
         }
         catch(Exception ex)
         {
-            System.out.println(ex + "deckField");//////
+            //System.out.println(ex + " deckField");//////
         }
     }
 }

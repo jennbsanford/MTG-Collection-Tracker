@@ -13,6 +13,7 @@ public class Main {
 		masterDecklist = parse.parseAllDecklists(list);
 		masterCollection = parse.parseMasterCollection();
 
+
 		masterDecklist.createStandardDecklist("Boros Burn");
 		Vector<String> a = masterDecklist.allDeckNames();
 		Iterator iter = a.iterator();
@@ -22,5 +23,15 @@ public class Main {
 		}
 
 		// INSERT YOUR CODE HERE DYLAN!
+
+		try
+		{
+			GUIframe frame = new GUIframe(masterDecklist);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e + " Main");
+		}
+
 	}
 }

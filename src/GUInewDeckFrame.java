@@ -15,7 +15,7 @@ public class GUInewDeckFrame extends JFrame implements ActionListener
     //protected JLabel errorMessage;
     //protected String path = "Decks//";//
     protected String path = "Decks/";//
-    private boolean makeCopy = false;
+    protected boolean makeCopy = false;
 
     GUInewDeckFrame()
     {
@@ -67,7 +67,7 @@ public class GUInewDeckFrame extends JFrame implements ActionListener
 
             //find type of object that performed the action
             String ObjType = e.getSource().getClass().getName();
-            System.out.println(ObjType);/////
+            //System.out.println(ObjType + "hello");/////
 
             //user pressed new deck button
             if(ObjType == "GUIcreateDeckButton")
@@ -87,7 +87,7 @@ public class GUInewDeckFrame extends JFrame implements ActionListener
             }
 
             //user pressed save button
-            if(ObjType == "javax.swing.JButton")
+            /*if(ObjType == "javax.swing.JButton")
             {
                 //System.out.println(inputField.getText() + "hello");
                 //errorMessage.setText("Name already in use!");
@@ -101,7 +101,7 @@ public class GUInewDeckFrame extends JFrame implements ActionListener
                     JOptionPane.showMessageDialog(warning, "Name already in use.");
                 }*/
 
-                else
+                /*else
                 {
                     String location = inputField.getText() + ".txt";
                     File newDeck = new File(path + location);
@@ -120,7 +120,7 @@ public class GUInewDeckFrame extends JFrame implements ActionListener
                 }
 
                 //JOptionPane.showMessageDialog(warning, "Name already in use.");
-            }
+            }*/
         }
         catch(Exception ex)
         {
