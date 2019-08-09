@@ -13,7 +13,6 @@ public class Main {
 		masterDecklist = parse.parseAllDecklists(list);
 		masterCollection = parse.parseMasterCollection();
 
-		// INSERT YOUR CODE HERE DYLAN!
 		try
 		{
 			GUIframe frame = new GUIframe(masterDecklist);
