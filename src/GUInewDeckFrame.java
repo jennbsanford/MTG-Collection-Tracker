@@ -15,7 +15,7 @@ public class GUInewDeckFrame extends JFrame implements ActionListener
     //protected JLabel errorMessage;
     //protected String path = "Decks//";//
     protected String path = "Decks/";//
-    private boolean makeCopy = false;
+    protected boolean makeCopy = false;
 
     GUInewDeckFrame()
     {
@@ -101,7 +101,7 @@ public class GUInewDeckFrame extends JFrame implements ActionListener
                     JOptionPane.showMessageDialog(warning, "Name already in use.");
                 }*/
 
-                else
+                /*else
                 {
                     String location = inputField.getText() + ".txt";
                     File newDeck = new File(path + location);
@@ -117,7 +117,7 @@ public class GUInewDeckFrame extends JFrame implements ActionListener
                         }
                         updater.doClick();  //sends signal to update deck field and drop down menu
                     }
-                }
+                }*/
 
                 //JOptionPane.showMessageDialog(warning, "Name already in use.");
             }

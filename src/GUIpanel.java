@@ -140,19 +140,64 @@ public class GUIpanel extends JPanel implements ActionListener
         //newDeckInput.updater.addActionListener(this);
         //newDeckInput.copyDeck.addActionListener(this);
 
+        //when user selects a deck it gets loaded
         deckNames.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
                 try
                 {
-                    //String wholeList = deckNames.getSelectedIndex()
+                    //load currently selected deck
                     deck.loadDeck(masterList.getString((String)deckNames.getSelectedItem()));
-                    //deckNames.getSelectedItem();
                 }
                 catch(Exception ex)
                 {
                     System.out.println(e + "comboBoxSelectionPanel");
+                }
+            }
+        });
+
+        //creates a new deck when user presses save button
+        newDeckInput.saveName.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                try
+                {
+                    JFrame warning = new JFrame();
+                    if(newDeckInput.inputField.getText().isEmpty())
+                        JOptionPane.showMessageDialog(warning, "Name cannot be blank.");
+
+                    String newName = newDeckInput.inputField.getText();
+
+                    if(!newDeckInput.makeCopy)
+                    {
+                        //attempt to create new deck with input name
+                        if (masterList.createStandardDecklist(newName) < 0)
+                            JOptionPane.showMessageDialog(warning, "File couldn't be created.");
+                        else
+                        {
+                            newDeckInput.setVisible(false);
+                            deckNames.loadNames(masterList.allDeckNames());
+                            deckNames.setSelectedItem(newName);
+                        }
+                    }
+                    else
+                    {
+                        //attempt to create a copy with the new name
+                        if (masterList.copyDecklist((String)deckNames.getSelectedItem(), newName) < 0)
+                            JOptionPane.showMessageDialog(warning, "File couldn't be created.");
+                        else
+                        {
+                            newDeckInput.setVisible(false);
+                            deckNames.loadNames(masterList.allDeckNames());
+                            deckNames.setSelectedItem(newName);
+                        }
+                    }
+                }
+                catch(Exception ex)
+                {
+                    System.out.println(e + "PanelCopyDeck");
                 }
             }
         });
