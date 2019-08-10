@@ -221,6 +221,28 @@ public class GUIpanel extends JPanel implements ActionListener
             }
         });
 
+        //deletes the current deck
+        deleteDeck.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                try
+                {
+                    String deckToDelete = (String)deckNames.getSelectedItem();
+                    masterList.removeDecklist(deckToDelete);
+                    deckNames.loadNames(masterList.allDeckNames());
+                    /*File deleteFile = new File(path + deckNames.getSelectedItem());
+                    if(!deleteFile.delete())
+                        System.out.println("deck couldnt be deleted");
+                    updateRecentDeck();*/
+                }
+                catch(Exception ex)
+                {
+                    System.out.println(e + " PanelDeleteDeck");
+                }
+            }
+        });
+
         //invokes deck field update routine
         /*refresh.addActionListener(new ActionListener() {
             @Override
@@ -339,24 +361,26 @@ public class GUIpanel extends JPanel implements ActionListener
             }
         });*/
 
-        //deletes the current deck
+        /*//deletes the current deck
         deleteDeck.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
                 try
                 {
-                    File deleteFile = new File(path + deckNames.getSelectedItem());
+                    String deckToDelete = (String)deckNames.getSelectedItem();
+                    deckNames.loadNames(masterList.allDeckNames());
+                    /*File deleteFile = new File(path + deckNames.getSelectedItem());
                     if(!deleteFile.delete())
                         System.out.println("deck couldnt be deleted");
                     updateRecentDeck();
                 }
                 catch(Exception ex)
                 {
-                    System.out.println(e + "PanelCopyDeck");
+                    System.out.println(e + " PanelDeleteDeck");
                 }
             }
-        });
+        });*/
 
         /*temp = new JButton();
         c.gridwidth = GridBagConstraints.WEST;
