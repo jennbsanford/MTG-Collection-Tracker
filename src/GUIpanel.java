@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 
+import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER;
+
 public class GUIpanel extends JPanel implements ActionListener
 {
     //master list of decks
@@ -33,6 +35,7 @@ public class GUIpanel extends JPanel implements ActionListener
     //windows
     private GUInewDeckFrame newDeckInput;
     private GUIfindCardsFrame findCardsWindow;
+    protected JButton pack;
 
     protected String path = "Decks/";
 
@@ -57,12 +60,18 @@ public class GUIpanel extends JPanel implements ActionListener
 
         //collection field
         collection = new GUIcollectionField(c);
-        add(new JScrollPane(collection), c);
+        JScrollPane colScroll = new JScrollPane(collection);
+        colScroll.setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
+        add(colScroll, c);
+        //add(new JScrollPane(collection), c);
 
         //deck list field
         deck = new GUIdeckField(c);
         deck.loadDeck(masterList.getString(masterList.allDeckNames().elementAt(0)));
-        add(new JScrollPane(deck), c);
+        JScrollPane deckScroll = new JScrollPane(deck);
+        deckScroll.setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
+        add(deckScroll, c);
+        //add(new JScrollPane(deck), c);
 
         //deck list drop down menu
         deckNames = new GUIdecksComboBox(c, masterList.allDeckNames());
@@ -180,6 +189,7 @@ public class GUIpanel extends JPanel implements ActionListener
                             newDeckInput.setVisible(false);
                             deckNames.loadNames(masterList.allDeckNames());
                             deckNames.setSelectedItem(newName);
+                            //pack.doClick();
                         }
                     }
                     else
@@ -193,31 +203,57 @@ public class GUIpanel extends JPanel implements ActionListener
                             newDeckInput.setVisible(false);
                             deckNames.loadNames(masterList.allDeckNames());
                             deckNames.setSelectedItem(newName);
+                            pack.doClick();
+                            //
+                            //masterList.createStandardDecklist("temp");
+                            //masterList.removeDecklist("temp");
+                            //deckNames.setSelectedItem(newName);
                         }
                     }
-                }
-                catch(Exception ex)
+                } catch(Exception ex)
                 {
                     System.out.println(e + "PanelCopyDeck");
                 }
             }
         });
 
-        //invokes deck field update routine
-        newDeckInput.updater.addActionListener(new ActionListener() {
+        /*//repacks the screen
+        newDeckInput.saveName.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
                 try
                 {
-                    updateRecentDeck();
+                    String newName = (String)deckNames.getSelectedItem();
+                    System.out.println(newName);
+                    masterList.createStandardDecklist("temp");
+                    masterList.removeDecklist("temp");
+                    deckNames.setSelectedItem(newName);
+                    //deck.loadDeck(newName);
+                    //pack.doClick();
+                }
+                catch(Exception ex)
+                {
+                    System.out.println(e + "comboBoxSelectionPanel");
+                }
+            }
+        });*/
+
+        //invokes deck field update routine
+        /*newDeckInput.updater.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                try
+                {
+
                 }
                 catch(Exception ex)
                 {
                     System.out.println(e + "PanelCopyDeck");
                 }
             }
-        });
+        });*/
 
         //invokes deck field update routine
         findCards.addActionListener(new ActionListener() {
@@ -237,11 +273,12 @@ public class GUIpanel extends JPanel implements ActionListener
         });
 
         //action listener for when a deck needs to be copied
-        newDeckInput.copyDeck.addActionListener(new ActionListener() {
+        /*newDeckInput.copyDeck.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                try {
+                try
+                {
                     //String src = path + deckNames.getSelectedItem();
                     //String des = path + newDeckInput.copyName;
                     //System.out.println(src + "  " + des);
@@ -262,7 +299,7 @@ public class GUIpanel extends JPanel implements ActionListener
                     System.out.println(e + "PanelCopyDeck");
                 }
             }
-        });
+        });*/
 
         //deletes the current deck
         deleteDeck.addActionListener(new ActionListener() {

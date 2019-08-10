@@ -10,6 +10,9 @@ public class GUIcopyDeckButton extends JButton
         //c.gridwidth = GridBagConstraints.WEST;
         //c.fill = GridBagConstraints.BOTH;
         //c.gridheight = GridBagConstraints.NORTH;
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridheight = 1;
+        c.gridwidth = 1;
         c.gridx = 3;
         c.gridy = 2;
         //c.fill = GridBagConstraints.NONE;

@@ -19,15 +19,34 @@ public class GUIframe extends JFrame implements ActionListener
         //    System.out.println(masterList.allDeckNames().elementAt(i) + "frame");
         //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //create panel and add to frame
-        mainPanel = new GUIpanel(master);
-        add(mainPanel);
+        try
+        {
+            //create panel and add to frame
+            mainPanel = new GUIpanel(master);
+            add(mainPanel);
+            mainPanel.pack.addActionListener(this);
+        }
+        catch(Exception e)
+        {
+            System.out.println(e + " howdy");
+            pack();
+        }
 
         //show frame on screen
         pack();
         setResizable(false);
         setLocationRelativeTo(null);
         setVisible(true);
+
+        //signal was sent to pack the window
+        mainPanel.pack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                System.out.print("Entered frame class main.");
+                pack();
+            }
+        });
     }
 
     public static void main(String[] args)

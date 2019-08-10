@@ -12,8 +12,10 @@ public class GUIcreateDeckButton extends JButton
         super("+");
         setToolTipText("Create a new deck");
         //c.gridwidth = GridBagConstraints.WEST;
-        c.fill = GridBagConstraints.BOTH;
+        c.fill = GridBagConstraints.HORIZONTAL;
         //c.gridheight = GridBagConstraints.NORTH;
+        c.gridwidth = 1;
+        c.gridheight = 1;
         c.gridx = 3;
         c.gridy = 1;
         //c.fill = GridBagConstraints.NONE;

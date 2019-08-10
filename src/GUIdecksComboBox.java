@@ -10,8 +10,8 @@ public class GUIdecksComboBox extends JComboBox
 
     GUIdecksComboBox(GridBagConstraints c, Vector<String> deckNames)
     {
-        c.gridwidth = GridBagConstraints.EAST;
-        //c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridwidth = 4;
+        c.fill = GridBagConstraints.HORIZONTAL;
         c.gridheight = 1;
         c.gridx = 18;
         c.gridy = 1;

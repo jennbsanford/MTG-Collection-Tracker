@@ -17,7 +17,8 @@ public class GUIdeckField extends JTextArea implements ActionListener
     GUIdeckField(GridBagConstraints c)
     {
         super(20,25);
-        c.gridwidth = GridBagConstraints.EAST;
+        //c.gridwidth = GridBagConstraints.EAST;
+        c.gridwidth = 4;
         c.gridheight = 4;
         c.fill = GridBagConstraints.BOTH;
         c.gridx = 18;

@@ -13,13 +13,12 @@ public class Main {
 		masterDecklist = parse.parseAllDecklists(list);
 		masterCollection = parse.parseMasterCollection();
 
-		// INSERT YOUR CODE HERE DYLAN!
-
+		GUIframe frame = null;
 		try
 		{
-			GUIframe frame = new GUIframe(masterDecklist);
-		}
-		catch(Exception e)
+			//create user interface window
+			frame = new GUIframe(masterDecklist);
+		} catch (Exception e)
 		{
 			System.out.println(e + " Main");
 		}
