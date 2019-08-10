@@ -29,7 +29,7 @@ public class GUIframe extends JFrame implements ActionListener
         catch(Exception e)
         {
             System.out.println(e + " howdy");
-            pack();
+            //pack();
         }
 
         //show frame on screen
@@ -43,7 +43,7 @@ public class GUIframe extends JFrame implements ActionListener
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                System.out.print("Entered frame class main.");
+                System.out.print(e + " Entered frame class listener.");
                 pack();
             }
         });

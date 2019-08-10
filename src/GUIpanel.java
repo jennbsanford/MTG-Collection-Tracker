@@ -121,6 +121,9 @@ public class GUIpanel extends JPanel implements ActionListener
         //window that shows all locations for entered card
         findCardsWindow = new GUIfindCardsFrame();
 
+        //button that tells frame to pack
+        pack = new JButton();
+
         //window for entering a name for a new deck
         newDeckInput = new GUInewDeckFrame();
         createDeck.addActionListener(newDeckInput);
@@ -189,7 +192,7 @@ public class GUIpanel extends JPanel implements ActionListener
                             newDeckInput.setVisible(false);
                             deckNames.loadNames(masterList.allDeckNames());
                             deckNames.setSelectedItem(newName);
-                            //pack.doClick();
+                            pack.doClick();
                         }
                     }
                     else
@@ -206,6 +209,7 @@ public class GUIpanel extends JPanel implements ActionListener
                             pack.doClick();
                             //
                             //masterList.createStandardDecklist("temp");
+                            //deck.loadDeck("temp");
                             //masterList.removeDecklist("temp");
                             //deckNames.setSelectedItem(newName);
                         }
@@ -216,6 +220,23 @@ public class GUIpanel extends JPanel implements ActionListener
                 }
             }
         });
+
+        //invokes deck field update routine
+        /*refresh.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                try
+                {
+                    //System.out.println("findCardActionListener");
+                    //findCardsWindow.findCard("DoomBlade");
+                }
+                catch(Exception ex)
+                {
+                    System.out.println(e + " PanelRefreshButton");
+                }
+            }
+        });*/
 
         /*//repacks the screen
         newDeckInput.saveName.addActionListener(new ActionListener() {
@@ -271,6 +292,23 @@ public class GUIpanel extends JPanel implements ActionListener
                 }
             }
         });
+
+        //invokes deck field update routine
+        /*refresh.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                try
+                {
+                    //System.out.println("findCardActionListener");
+                    //findCardsWindow.findCard("DoomBlade");
+                }
+                catch(Exception ex)
+                {
+                    System.out.println(e + " PanelRefreshButton");
+                }
+            }
+        });*/
 
         //action listener for when a deck needs to be copied
         /*newDeckInput.copyDeck.addActionListener(new ActionListener() {
