@@ -1,16 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class GUIaddToDeckSideButton extends JButton
+public class GUIremoveFromDeckSideButton extends JButton
 {
-    GUIaddToDeckSideButton(GridBagConstraints c)
+    GUIremoveFromDeckSideButton(GridBagConstraints c)
     {
-        super("+ Side");
-        setToolTipText("Add entered card to the sideboard");
+        super("- Card");
+        setToolTipText("Remove entered card from the sideboard");
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridheight = 1;
         c.gridwidth = 1;
-        c.gridx = 19;
+        c.gridx = 21;
         c.gridy = 0;
         c.weightx = 1;
         c.weighty = 1;

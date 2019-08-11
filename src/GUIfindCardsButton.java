@@ -7,12 +7,13 @@ public class GUIfindCardsButton extends JButton
 
     GUIfindCardsButton(GridBagConstraints c)
     {
-        super("Find");
+        //super("<html>Find All<p>Copies</html>");
+        super("Find Copies");
         setToolTipText("Find all copies of the entered card");
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridheight = 1;
         c.gridwidth = 1;
-        c.gridx = 21;
+        c.gridx = 22;
         c.gridy = 0;
         c.weightx = 1;
         c.weighty = 1;
