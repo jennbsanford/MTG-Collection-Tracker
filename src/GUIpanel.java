@@ -25,6 +25,7 @@ public class GUIpanel extends JPanel implements ActionListener
     protected GUIaddToDeckButton addToDeck;
     protected GUIaddToDeckSideButton addToSide;
     protected GUIremoveFromDeckButton removeFromDeck;
+    protected GUIremoveFromDeckSideButton removeFromSide;
     protected GUIcreateDeckButton createDeck;
     protected GUIcopyDeckButton copyDeck;
     protected GUIdeleteDeckButton deleteDeck;
@@ -102,9 +103,13 @@ public class GUIpanel extends JPanel implements ActionListener
         addToSide = new GUIaddToDeckSideButton(c);
         add(addToSide, c);
 
-        //remove a card from current deck and put it back into the collection
+        //remove a card from current mainboard
         removeFromDeck = new GUIremoveFromDeckButton(c);
         add(removeFromDeck, c);
+
+        //remove a card from current sideboard
+        removeFromSide = new GUIremoveFromDeckSideButton(c);
+        add(removeFromSide, c);
 
         //copy the current deck with a new name
         copyDeck = new GUIcopyDeckButton(c);
@@ -183,9 +188,9 @@ public class GUIpanel extends JPanel implements ActionListener
                 {
                     String newName = newDeckInput.inputField.getText();
                     JFrame warning = new JFrame();
+
                     if(newDeckInput.inputField.getText().isEmpty())
                         JOptionPane.showMessageDialog(warning, "Name cannot be blank.");
-
                     else if(!newDeckInput.makeCopy)
                     {
                         //attempt to create new deck with input name
@@ -212,16 +217,11 @@ public class GUIpanel extends JPanel implements ActionListener
                             deckNames.loadNames(masterList.allDeckNames());
                             deckNames.setSelectedItem(newName);
                             pack.doClick();
-                            //
-                            //masterList.createStandardDecklist("temp");
-                            //deck.loadDeck("temp");
-                            //masterList.removeDecklist("temp");
-                            //deckNames.setSelectedItem(newName);
                         }
                     }
                 } catch(Exception ex)
                 {
-                    System.out.println(e + "PanelCopyDeck");
+                    System.out.println(e + " PanelCopyDeck");
                 }
             }
         });
@@ -234,16 +234,93 @@ public class GUIpanel extends JPanel implements ActionListener
                 try
                 {
                     String deckToDelete = (String)deckNames.getSelectedItem();
-                    masterList.removeDecklist(deckToDelete);
-                    deckNames.loadNames(masterList.allDeckNames());
-                    /*File deleteFile = new File(path + deckNames.getSelectedItem());
-                    if(!deleteFile.delete())
-                        System.out.println("deck couldnt be deleted");
-                    updateRecentDeck();*/
+                    JFrame warning = new JFrame();
+
+                    if(masterList.removeDecklist(deckToDelete) < 0)
+                        JOptionPane.showMessageDialog(warning, "Deck couldn't be deleted.");
+                    else
+                        deckNames.loadNames(masterList.allDeckNames());
                 }
                 catch(Exception ex)
                 {
                     System.out.println(e + " PanelDeleteDeck");
+                }
+            }
+        });
+
+        //adds the current text in the user input field to the mainboard
+        addToDeck.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                try
+                {
+                    JFrame warning = new JFrame();
+                    String deck = (String)deckNames.getSelectedItem();
+                    if(!input.getText().isEmpty())
+                    {
+                        int errorCode = masterList.addCardToMain(deck, input.getText());
+                        if (errorCode < 0)
+                            JOptionPane.showMessageDialog(warning, "Card couldn't be added");
+                        else if (errorCode == 0)
+                            JOptionPane.showMessageDialog(warning, "Deck couldn't be found");
+                        else
+                            deckNames.setSelectedItem(deck);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    System.out.println(e + " PanelRefreshButton");
+                }
+            }
+        });
+
+        //adds the current text in the user input field to the sideboard
+        addToSide.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                try
+                {
+                    String deck = (String)deckNames.getSelectedItem();
+                    if(!input.getText().isEmpty()) {
+                        int errorCode = masterList.addCardToSide(deck, input.getText());
+                        if (errorCode < 0)
+                            JOptionPane.showMessageDialog(new JFrame(), "Card couldn't be added");
+                        else if (errorCode == 0)
+                            JOptionPane.showMessageDialog(new JFrame(), "Deck couldn't be found");
+                        else
+                            deckNames.setSelectedItem(deck);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    System.out.println(e + " PanelRefreshButton");
+                }
+            }
+        });
+
+        //removes the current text in the user input field from the current deck
+        removeFromDeck.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                try
+                {
+                    String deck = (String)deckNames.getSelectedItem();
+                    if(!input.getText().isEmpty()) {
+                        int errorCode = masterList.addCardToSide(deck, input.getText());
+                        if (errorCode < 0)
+                            JOptionPane.showMessageDialog(new JFrame(), "Card couldn't be added");
+                        else if (errorCode == 0)
+                            JOptionPane.showMessageDialog(new JFrame(), "Deck couldn't be found");
+                        else
+                            deckNames.setSelectedItem(deck);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    System.out.println(e + " PanelRefreshButton");
                 }
             }
         });
