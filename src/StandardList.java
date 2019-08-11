@@ -15,46 +15,57 @@ public class StandardList extends Decklist {
     public boolean addCard(String cardName, int quantity, String mainOrSide) {
         if (cardName == null || quantity < 1)
             return false;
-        else {
-            Card obj = new Card();
-            obj.setCard(cardName, quantity);
-            Card toFind = findCard(cardName);
-            if (toFind == null)
-            {
-                if (mainOrSide.equals("Main"))
-                    maindeck.add(obj);
-                else
-                    sideboard.add(obj);
-            }
+
+        Card obj = new Card();
+        obj.setCard(cardName, quantity);
+        Card toFind;
+        if (mainOrSide.equals("Main"))
+            toFind = findCardMain(cardName);
+        else
+            toFind = findCardSide(cardName);
+
+        if (toFind == null)
+        {
+            if (mainOrSide.equals("Main"))
+                maindeck.add(obj);
             else
-            {
-                toFind.incrementQuantity();
-            }
-            return true;
+                sideboard.add(obj);
         }
+        else {
+            toFind.incrementQuantity();
+        }
+
+        return true;
     }
 
     public boolean removeCard(String cardName, int quantity, String mainOrSide) {
         if (cardName == null || quantity < 1)
             return false;
-        else {
-            Card obj = findCard(cardName);
-            if (obj == null) {
-                return false;
-            }
-            if (obj.getQuantity() > 1) {
-                obj.decrementQuantity();
-                return true;
-            }
-            else if (mainOrSide.equals("Main"))
-                maindeck.remove(obj);
-            else
-                sideboard.remove(obj);
+
+        Card obj;
+
+        if (mainOrSide.equals("Main"))
+            obj = findCardMain(cardName);
+        else
+            obj = findCardSide(cardName);
+
+        if (obj == null) {
+            return false;
+        }
+        if (obj.getQuantity() > 1) {
+            obj.decrementQuantity();
             return true;
         }
+        else if (mainOrSide.equals("Main"))
+            maindeck.remove(obj);
+        else
+            sideboard.remove(obj);
+        return true;
+
     }
 
-    public Card findCard(String cardName) {
+    public Card findCardMain(String cardName) {
+
         Iterator iter = maindeck.iterator();
         while (iter.hasNext()) {
             Card mycard = (Card) iter.next();
@@ -62,6 +73,11 @@ public class StandardList extends Decklist {
                 return mycard;
             }
         }
+        return null;
+    }
+
+    public Card findCardSide(String cardName) {
+
         Iterator iter2 = sideboard.iterator();
         while (iter2.hasNext()) {
             Card mycard = (Card) iter2.next();
