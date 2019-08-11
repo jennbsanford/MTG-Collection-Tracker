@@ -6,8 +6,8 @@ public class GUIremoveFromDeckButton extends JButton
     GUIremoveFromDeckButton(GridBagConstraints c)
     {
         super("- Card");
-        setToolTipText("Remove entered card from the current deck");
-        c.fill = GridBagConstraints.BOTH;
+        setToolTipText("Remove entered card from the mainboard");
+        c.fill = GridBagConstraints.HORIZONTAL;
         c.gridheight = 1;
         c.gridwidth = 1;
         c.gridx = 20;

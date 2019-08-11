@@ -7,7 +7,7 @@ public class GUIaddToDeckButton extends JButton
     {
         super("+ Main");
         setToolTipText("Add entered card to the mainboard");
-        c.fill = GridBagConstraints.BOTH;
+        c.fill = GridBagConstraints.HORIZONTAL;
         c.gridheight = 1;
         c.gridwidth = 1;
         c.gridx = 18;

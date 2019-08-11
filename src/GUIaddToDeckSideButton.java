@@ -7,7 +7,7 @@ public class GUIaddToDeckSideButton extends JButton
     {
         super("+ Side");
         setToolTipText("Add entered card to the sideboard");
-        c.fill = GridBagConstraints.BOTH;
+        c.fill = GridBagConstraints.HORIZONTAL;
         c.gridheight = 1;
         c.gridwidth = 1;
         c.gridx = 19;
