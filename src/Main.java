@@ -17,7 +17,7 @@ public class Main {
 		try
 		{
 			//create user interface window
-			frame = new GUIframe(masterDecklist);
+			frame = new GUIframe(masterDecklist, masterCollection);
 		} catch (Exception e)
 		{
 			System.out.println(e + " Main");
