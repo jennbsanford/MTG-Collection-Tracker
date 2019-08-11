@@ -16,6 +16,6 @@ public class GUIfindCardsButton extends JButton
         c.gridy = 0;
         c.weightx = 1;
         c.weighty = 1;
-        c.insets = new Insets(5, 5, 5,5);
+        c.insets = new Insets(5, 2, 5,2);
     }
 }

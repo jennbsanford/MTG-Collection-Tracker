@@ -5,16 +5,15 @@ public class GUIremoveFromDeckButton extends JButton
 {
     GUIremoveFromDeckButton(GridBagConstraints c)
     {
-        super("+");
-        setToolTipText("Create a new deck");
-        //c.gridwidth = GridBagConstraints.WEST;
+        super("- Card");
+        setToolTipText("Remove entered card from the current deck");
         c.fill = GridBagConstraints.BOTH;
-        //c.gridheight = GridBagConstraints.NORTH;
-        c.gridx = 19;
+        c.gridheight = 1;
+        c.gridwidth = 1;
+        c.gridx = 20;
         c.gridy = 0;
-        //c.fill = GridBagConstraints.NONE;
         c.weightx = 1;
         c.weighty = 1;
-        c.insets = new Insets(5, 1, 5,1);
+        c.insets = new Insets(5, 2, 5,2);
     }
 }

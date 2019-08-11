@@ -23,6 +23,7 @@ public class GUIpanel extends JPanel implements ActionListener
     protected GUIaddToCollectionButton addToCollection;
     protected GUIremoveFromCollectionButton removeFromCollection;
     protected GUIaddToDeckButton addToDeck;
+    protected GUIaddToDeckSideButton addToSide;
     protected GUIremoveFromDeckButton removeFromDeck;
     protected GUIcreateDeckButton createDeck;
     protected GUIcopyDeckButton copyDeck;
@@ -93,13 +94,17 @@ public class GUIpanel extends JPanel implements ActionListener
         removeFromCollection = new GUIremoveFromCollectionButton(c);
         //add(removeFromCollection, c);
 
-        //add a card from the collection to the current deck
+        //add a card to the mainboard of the current deck
         addToDeck = new GUIaddToDeckButton(c);
-        //add(addToDeck, c);
+        add(addToDeck, c);
+
+        //add a card to the sideboard of the current deck
+        addToSide = new GUIaddToDeckSideButton(c);
+        add(addToSide, c);
 
         //remove a card from current deck and put it back into the collection
         removeFromDeck = new GUIremoveFromDeckButton(c);
-        //add(removeFromDeck, c);
+        add(removeFromDeck, c);
 
         //copy the current deck with a new name
         copyDeck = new GUIcopyDeckButton(c);

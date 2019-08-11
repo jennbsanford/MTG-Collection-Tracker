@@ -6,7 +6,7 @@ public class GUIuserInputField extends JTextField
     GUIuserInputField(GridBagConstraints c)
     {
         super(20);
-        c.gridwidth = 20;
+        c.gridwidth = 16;
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 1;
         c.gridy = 0;
