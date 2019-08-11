@@ -18,9 +18,8 @@ public class GUIcreateDeckButton extends JButton
         c.gridheight = 1;
         c.gridx = 3;
         c.gridy = 1;
-        //c.fill = GridBagConstraints.NONE;
-        c.weightx = 1;
-        c.weighty = 1;
+        c.weightx = 0;
+        c.weighty = 0;
         c.insets = new Insets(5, 1, 5,1);
     }
 }

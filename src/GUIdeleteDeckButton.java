@@ -9,7 +9,6 @@ public class GUIdeleteDeckButton extends JButton implements ActionListener
     {
         super("-");
         setToolTipText("Delete the current deck");
-        //c.gridwidth = GridBagConstraints.WEST;
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridheight = 1;
         c.gridwidth = 1;
@@ -17,8 +16,8 @@ public class GUIdeleteDeckButton extends JButton implements ActionListener
         c.gridx = 3;
         c.gridy = 3;
         //c.fill = GridBagConstraints.NONE;
-        c.weightx = 1;
-        c.weighty = 1;
+        c.weightx = 0;
+        c.weighty = 0;
         c.insets = new Insets(5, 1, 5,1);
     }
 

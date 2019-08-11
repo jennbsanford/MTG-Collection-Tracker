@@ -17,7 +17,7 @@ public class GUIframe extends JFrame implements ActionListener
         //masterList.createStandardDecklist("deckB");
         //for(int i = 0; i < masterList.allDeckNames().size(); i++)
         //    System.out.println(masterList.allDeckNames().elementAt(i) + "frame");
-        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         try
         {

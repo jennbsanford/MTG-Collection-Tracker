@@ -10,8 +10,8 @@ public class GUIaddToDeckButton extends JButton
         //c.gridwidth = GridBagConstraints.WEST;
         c.fill = GridBagConstraints.BOTH;
         //c.gridheight = GridBagConstraints.NORTH;
-        c.gridx = 3;
-        c.gridy = 1;
+        c.gridx = 18;
+        c.gridy = 0;
         //c.fill = GridBagConstraints.NONE;
         c.weightx = 1;
         c.weighty = 1;
