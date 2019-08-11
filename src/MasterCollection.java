@@ -30,13 +30,15 @@ public class MasterCollection {
         if (cardname == null) {
             return -1;
         }
-        boolean found = false;
         Iterator iter = collection.iterator();
         while (iter.hasNext()) {
             CollectedCard current = (CollectedCard) iter.next();
             if (current.getName().equals(cardname)) {
-                found = true;
                 current.decrementQuantity();
+                if (current.getQuantity() < 1)
+                {
+                    collection.remove(current);
+                }
                 return 1;
             }
         }

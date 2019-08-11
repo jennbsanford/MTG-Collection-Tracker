@@ -73,6 +73,7 @@ public class StandardList extends Decklist {
                 return mycard;
             }
         }
+
         return null;
     }
 
