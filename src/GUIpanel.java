@@ -10,6 +10,7 @@ public class GUIpanel extends JPanel implements ActionListener
 {
     //master list of decks
     private MasterDecklist masterList;
+    private MasterCollection collectionList;
 
     //text fields
     protected JTextField input;
@@ -44,13 +45,15 @@ public class GUIpanel extends JPanel implements ActionListener
     //protected JButton temp;//
     //protected JButton temp2;//
 
-    GUIpanel(MasterDecklist lists) throws Exception
+    GUIpanel(MasterDecklist deckLists, MasterCollection collectionLists) throws Exception
     {
         //setup panel layout
         super(new GridBagLayout());
 
-        //gain access to the masterList
-        masterList = lists;
+        //gain access to the masterLists
+        masterList = deckLists;
+        collectionList = collectionLists;
+
 
         //ready constraints
         GridBagConstraints c = new GridBagConstraints();
@@ -62,6 +65,7 @@ public class GUIpanel extends JPanel implements ActionListener
 
         //collection field
         collection = new GUIcollectionField(c);
+        collection.setText(collectionList.getString());
         JScrollPane colScroll = new JScrollPane(collection);
         colScroll.setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
         add(colScroll, c);
@@ -89,11 +93,11 @@ public class GUIpanel extends JPanel implements ActionListener
 
         //add a card to the collection
         addToCollection = new GUIaddToCollectionButton(c);
-        //add(addToCollection, c);
+        add(addToCollection, c);
 
         //remove a card from the collection
         removeFromCollection = new GUIremoveFromCollectionButton(c);
-        //add(removeFromCollection, c);
+        add(removeFromCollection, c);
 
         //add a card to the mainboard of the current deck
         addToDeck = new GUIaddToDeckButton(c);
@@ -142,19 +146,6 @@ public class GUIpanel extends JPanel implements ActionListener
         //newDeckInput.updater.addActionListener(this);
         //newDeckInput.copyDeck.addActionListener(this);
         //newDeckInput.updater.addActionListener(deckNames);
-
-
-
-        //user input field
-        /*input = new JTextField(40);
-        c.gridwidth = 20;
-        //c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 1;
-        c.gridy = 0;
-        c.weightx = 1;
-        c.weighty = 1;
-        c.insets = new Insets(5, 5, 5,5);
-        add(input, c);*/
 
         //action listeners
         //findCards.addActionListener(findCardsWindow);
@@ -248,6 +239,54 @@ public class GUIpanel extends JPanel implements ActionListener
             }
         });
 
+        //adds the current text in the user input field to the collection
+        addToCollection.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                try
+                {
+                    JFrame warning = new JFrame();
+                    if(!input.getText().isEmpty())
+                    {
+                        int errorCode = collectionList.addCard(input.getText(), 1);
+                        if (errorCode < 0)
+                            JOptionPane.showMessageDialog(warning, "Card couldn't be added");
+                        else
+                            collection.setText(collectionList.getString());
+                    }
+                }
+                catch(Exception ex)
+                {
+                    System.out.println(e + "PanelCopyDeck");
+                }
+            }
+        });
+
+        //adds the current text in the user input field to the collection
+        removeFromCollection.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                try
+                {
+                    JFrame warning = new JFrame();
+                    if(!input.getText().isEmpty())
+                    {
+                        int errorCode = collectionList.removeCard(input.getText());
+                        if (errorCode < 0)
+                            JOptionPane.showMessageDialog(warning, "Card couldn't be removed");
+                        else
+                            collection.setText(collectionList.getString());
+                    }
+                }
+                catch(Exception ex)
+                {
+                    System.out.println(e + "PanelCopyDeck");
+                }
+            }
+        });
+
         //adds the current text in the user input field to the mainboard
         addToDeck.addActionListener(new ActionListener() {
             @Override
@@ -300,7 +339,7 @@ public class GUIpanel extends JPanel implements ActionListener
             }
         });
 
-        //removes the current text in the user input field from the current deck
+        //removes the current text in the user input field from the mainboard
         removeFromDeck.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
@@ -309,7 +348,7 @@ public class GUIpanel extends JPanel implements ActionListener
                 {
                     String deck = (String)deckNames.getSelectedItem();
                     if(!input.getText().isEmpty()) {
-                        int errorCode = masterList.addCardToSide(deck, input.getText());
+                        int errorCode = masterList.removeCard(deck, input.getText(), "Main");
                         if (errorCode < 0)
                             JOptionPane.showMessageDialog(new JFrame(), "Card couldn't be added");
                         else if (errorCode == 0)
@@ -325,44 +364,30 @@ public class GUIpanel extends JPanel implements ActionListener
             }
         });
 
-        //invokes deck field update routine
-        /*refresh.addActionListener(new ActionListener() {
+        //removes the current text in the user input field from the sideboard
+        removeFromSide.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
                 try
                 {
-                    //System.out.println("findCardActionListener");
-                    //findCardsWindow.findCard("DoomBlade");
+                    String deck = (String)deckNames.getSelectedItem();
+                    if(!input.getText().isEmpty()) {
+                        int errorCode = masterList.removeCard(deck, input.getText(), "Side");
+                        if (errorCode < 0)
+                            JOptionPane.showMessageDialog(new JFrame(), "Card couldn't be added");
+                        else if (errorCode == 0)
+                            JOptionPane.showMessageDialog(new JFrame(), "Deck couldn't be found");
+                        else
+                            deckNames.setSelectedItem(deck);
+                    }
                 }
                 catch(Exception ex)
                 {
                     System.out.println(e + " PanelRefreshButton");
                 }
             }
-        });*/
-
-        /*//repacks the screen
-        newDeckInput.saveName.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                try
-                {
-                    String newName = (String)deckNames.getSelectedItem();
-                    System.out.println(newName);
-                    masterList.createStandardDecklist("temp");
-                    masterList.removeDecklist("temp");
-                    deckNames.setSelectedItem(newName);
-                    //deck.loadDeck(newName);
-                    //pack.doClick();
-                }
-                catch(Exception ex)
-                {
-                    System.out.println(e + "comboBoxSelectionPanel");
-                }
-            }
-        });*/
+        });
 
         //invokes deck field update routine
         /*newDeckInput.updater.addActionListener(new ActionListener() {
@@ -396,95 +421,6 @@ public class GUIpanel extends JPanel implements ActionListener
                 }
             }
         });
-
-        //invokes deck field update routine
-        /*refresh.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                try
-                {
-                    //System.out.println("findCardActionListener");
-                    //findCardsWindow.findCard("DoomBlade");
-                }
-                catch(Exception ex)
-                {
-                    System.out.println(e + " PanelRefreshButton");
-                }
-            }
-        });*/
-
-        //action listener for when a deck needs to be copied
-        /*newDeckInput.copyDeck.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                try
-                {
-                    //String src = path + deckNames.getSelectedItem();
-                    //String des = path + newDeckInput.copyName;
-                    //System.out.println(src + "  " + des);
-
-                    FileInputStream is = new FileInputStream(path + deckNames.getSelectedItem());
-                    FileOutputStream os = new FileOutputStream(path + newDeckInput.copyName);
-
-                    //copy deck file from src to des
-                    int curr;
-                    while((curr = is.read()) != -1)
-                        os.write(curr);
-
-                    is.close();
-                    os.close();
-                }
-                catch(Exception ex)
-                {
-                    System.out.println(e + "PanelCopyDeck");
-                }
-            }
-        });*/
-
-        /*//deletes the current deck
-        deleteDeck.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                try
-                {
-                    String deckToDelete = (String)deckNames.getSelectedItem();
-                    deckNames.loadNames(masterList.allDeckNames());
-                    /*File deleteFile = new File(path + deckNames.getSelectedItem());
-                    if(!deleteFile.delete())
-                        System.out.println("deck couldnt be deleted");
-                    updateRecentDeck();
-                }
-                catch(Exception ex)
-                {
-                    System.out.println(e + " PanelDeleteDeck");
-                }
-            }
-        });*/
-
-        /*temp = new JButton();
-        c.gridwidth = GridBagConstraints.WEST;
-        //c.fill = GridBagConstraints.BOTH;
-        c.gridx = 0;
-        c.gridy = 1;
-        c.weightx = 1;
-        c.weighty = 1;
-        c.insets = new Insets(5, 5, 5,5);
-        temp.addActionListener(this);
-        add(temp, c);
-
-        temp2 = new JButton();
-        c.gridwidth = GridBagConstraints.WEST;
-        //c.fill = GridBagConstraints.BOTH;
-        c.gridx = 7;
-        c.gridy = 1;
-        c.weightx = 1;
-        c.weighty = 1;
-        c.insets = new Insets(5, 5, 5,5);
-        temp2.addActionListener(this);
-        add(temp2, c);*/
     }
 
     //----------------------------------------------------------------//
