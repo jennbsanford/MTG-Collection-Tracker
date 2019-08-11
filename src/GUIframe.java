@@ -7,7 +7,7 @@ public class GUIframe extends JFrame implements ActionListener
     protected GUIpanel mainPanel;
     //protected MasterDecklist masterList;
 
-    public GUIframe(MasterDecklist master) throws Exception
+    public GUIframe(MasterDecklist masterD, MasterCollection masterC) throws Exception
     {
         //set title and have program exit when window is closed
         super("MTG Collection Tracker");
@@ -22,7 +22,7 @@ public class GUIframe extends JFrame implements ActionListener
         try
         {
             //create panel and add to frame
-            mainPanel = new GUIpanel(master);
+            mainPanel = new GUIpanel(masterD, masterC);
             add(mainPanel);
             mainPanel.pack.addActionListener(this);
         }
