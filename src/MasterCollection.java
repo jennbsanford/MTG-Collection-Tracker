@@ -30,12 +30,19 @@ public class MasterCollection {
         if (cardname == null) {
             return -1;
         }
-        boolean rc = collection.remove(new CollectedCard(cardname, 1));
-        if (rc == false) {
-            return 0;
+        boolean found = false;
+        Iterator iter = collection.iterator();
+        while (iter.hasNext()) {
+            CollectedCard current = (CollectedCard) iter.next();
+            if (current.getName().equals(cardname)) {
+                found = true;
+                current.decrementQuantity();
+                return 1;
+            }
         }
-        else
-            return 1;
+
+        return 0;
+
     }
 
     public String getString() {
