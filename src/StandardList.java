@@ -18,10 +18,18 @@ public class StandardList extends Decklist {
         else {
             Card obj = new Card();
             obj.setCard(cardName, quantity);
-            if (mainOrSide.equals("Main"))
-                maindeck.add(obj);
+            Card toFind = findCard(cardName);
+            if (toFind == null)
+            {
+                if (mainOrSide.equals("Main"))
+                    maindeck.add(obj);
+                else
+                    sideboard.add(obj);
+            }
             else
-                sideboard.add(obj);
+            {
+                toFind.incrementQuantity();
+            }
             return true;
         }
     }

@@ -42,6 +42,10 @@ public class Card {
         quantity -= 1;
     }
 
+    public void incrementQuantity() {
+        quantity -= 1;
+    }
+
     public void print() {
         System.out.print(quantity + " " + name);
     }
