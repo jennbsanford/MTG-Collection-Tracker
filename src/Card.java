@@ -43,7 +43,7 @@ public class Card {
     }
 
     public void incrementQuantity() {
-        quantity -= 1;
+        quantity += 1;
     }
 
     public void print() {
