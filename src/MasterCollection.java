@@ -20,7 +20,7 @@ public class MasterCollection {
         boolean rc = collection.add(card);
         if (rc == false) {
             card = collection.floor(card);
-            card.setQuantity(quantity);
+            card.setQuantity(card.getQuantity() + quantity);
             return 0;
         }
         return 1;
