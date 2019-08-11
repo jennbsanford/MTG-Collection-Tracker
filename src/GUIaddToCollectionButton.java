@@ -5,16 +5,15 @@ public class GUIaddToCollectionButton extends JButton
 {
     GUIaddToCollectionButton(GridBagConstraints c)
     {
-        super("+");
-        setToolTipText("Create a new deck");
-        //c.gridwidth = GridBagConstraints.WEST;
-        c.fill = GridBagConstraints.BOTH;
-        //c.gridheight = GridBagConstraints.NORTH;
-        c.gridx = 3;
+        super("+ Collection");
+        setToolTipText("Add the entered card to your collection");
+        c.fill = GridBagConstraints.NONE;
+        c.gridheight = 1;
+        c.gridwidth = 1;
+        c.gridx = 0;
         c.gridy = 1;
-        //c.fill = GridBagConstraints.NONE;
         c.weightx = 1;
         c.weighty = 1;
-        c.insets = new Insets(5, 1, 5,1);
+        c.insets = new Insets(5, 2, 5,2);
     }
 }

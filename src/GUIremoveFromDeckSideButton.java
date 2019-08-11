@@ -5,7 +5,7 @@ public class GUIremoveFromDeckSideButton extends JButton
 {
     GUIremoveFromDeckSideButton(GridBagConstraints c)
     {
-        super("- Card");
+        super("- Side");
         setToolTipText("Remove entered card from the sideboard");
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridheight = 1;
