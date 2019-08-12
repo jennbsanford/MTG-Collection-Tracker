@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.*;
 
 import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER;
@@ -152,6 +154,46 @@ public class GUIpanel extends JPanel implements ActionListener
         //newDeckInput.updater.addActionListener(deckNames);
         //newDeckInput.updater.addActionListener(this);
         //newDeckInput.copyDeck.addActionListener(this);
+
+        collection.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                try {
+                    //finds line clicked by the user
+                    super.mouseClicked(e);
+                    int lineNum = collection.getLineOfOffset(collection.getCaretPosition());
+                    int lineStart = collection.getLineStartOffset(lineNum);
+                    int lineEnd = collection.getLineEndOffset(lineNum);
+                    String cardName = collection.getDocument().getText(lineStart, (lineEnd - lineStart));
+
+                    if(!cardName.isEmpty())
+                        input.setText(cardName.substring(2).trim());
+                } catch(Exception ex)
+                {
+                    System.out.println(ex + " collectionMouseListener");
+                }
+            }
+        });
+
+        deck.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                try {
+                    //finds line clicked by the user
+                    super.mouseClicked(e);
+                    int lineNum = deck.getLineOfOffset(deck.getCaretPosition());
+                    int lineStart = deck.getLineStartOffset(lineNum);
+                    int lineEnd = deck.getLineEndOffset(lineNum);
+                    String cardName = deck.getDocument().getText(lineStart, (lineEnd - lineStart));
+
+                    if(!cardName.isEmpty())
+                        input.setText(cardName.substring(2).trim());
+                } catch(Exception ex)
+                {
+                    System.out.println(ex + " deckMouseListener");
+                }
+            }
+        });
 
         //when user selects a deck it gets loaded
         deckNames.addActionListener(new ActionListener() {

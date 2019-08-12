@@ -22,8 +22,7 @@ public class GUIframe extends JFrame implements ActionListener
         }
         catch(Exception e)
         {
-            System.out.println(e + " howdy");
-            //pack();
+            System.out.println(e + " framePanelCreation");
         }
 
         //show frame on screen

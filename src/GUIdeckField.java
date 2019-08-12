@@ -17,6 +17,7 @@ public class GUIdeckField extends JTextArea implements ActionListener
     GUIdeckField(GridBagConstraints c)
     {
         super(20,25);
+        setToolTipText("Click a card name to enter it above");
         c.gridwidth = 4;
         c.gridheight = 8;
         c.fill = GridBagConstraints.BOTH;
