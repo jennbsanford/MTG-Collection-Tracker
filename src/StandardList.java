@@ -81,6 +81,7 @@ public class StandardList extends Decklist {
             found = true;
         }
         if (found) {
+            result = new Card();
             result.setCard(cardname, quantity);
             return result;
         }

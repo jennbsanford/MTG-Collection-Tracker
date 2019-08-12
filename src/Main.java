@@ -12,7 +12,7 @@ public class Main {
 		Vector list = parse.parseMasterList();
 		masterDecklist = parse.parseAllDecklists(list);
 		masterCollection = parse.parseMasterCollection();
-
+        Iterator iter = list.iterator();
 
 		GUIframe frame = null;
 		try
