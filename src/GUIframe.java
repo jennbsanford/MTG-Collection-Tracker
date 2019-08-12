@@ -11,12 +11,6 @@ public class GUIframe extends JFrame implements ActionListener
     {
         //set title and have program exit when window is closed
         super("MTG Collection Tracker");
-
-        //masterList = master;
-        //masterList.createStandardDecklist("deckA");
-        //masterList.createStandardDecklist("deckB");
-        //for(int i = 0; i < masterList.allDeckNames().size(); i++)
-        //    System.out.println(masterList.allDeckNames().elementAt(i) + "frame");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         try
