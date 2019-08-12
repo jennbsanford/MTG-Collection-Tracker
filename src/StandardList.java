@@ -64,6 +64,30 @@ public class StandardList extends Decklist {
 
     }
 
+    public Card findCard(String cardname) {
+        Card result;
+        int quantity = 0;
+        boolean found = false;
+
+        result = findCardMain(cardname);
+        if (result != null) {
+            quantity += result.getQuantity();
+            found = true;
+        }
+
+        result = findCardSide(cardname);
+        if (result != null) {
+            quantity += result.getQuantity();
+            found = true;
+        }
+        if (found) {
+            result.setCard(cardname, quantity);
+            return result;
+        }
+        else
+            return null;
+    }
+
     public Card findCardMain(String cardName) {
 
         Iterator iter = maindeck.iterator();

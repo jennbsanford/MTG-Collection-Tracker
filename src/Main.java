@@ -13,6 +13,7 @@ public class Main {
 		masterDecklist = parse.parseAllDecklists(list);
 		masterCollection = parse.parseMasterCollection();
 
+
 		GUIframe frame = null;
 		try
 		{
