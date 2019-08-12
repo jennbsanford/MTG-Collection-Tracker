@@ -2,15 +2,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
-public class GUIfindCardsFrame extends JFrame implements ActionListener
+public class GUIfindCardsFrame extends JFrame
 {
     protected JLabel text;
     protected JPanel panel;
+    private int inCollection;
+    private Vector<nameQuantity> inDecks;
 
     GUIfindCardsFrame()
     {
-        super("Locations of entered card");
+        super("Find Card");
 
         panel = new JPanel(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -25,10 +28,10 @@ public class GUIfindCardsFrame extends JFrame implements ActionListener
         c.insets = new Insets(10, 10, 10,10);
 
         text = new JLabel();
-        text.setText("<html>Card: Doom Blade<p>You own 6 copies in your collection.");////
-        text.setText(text.getText() + "<p><p>1 in deckA");
-        text.setText(text.getText() + "<p>3 in deckB");
-        text.setText(text.getText() + "<p>2 in deckC</html>");
+        //text.setText("<html>Card: Doom Blade<p>You own 6 copies in your collection.");////
+        //text.setText(text.getText() + "<p><p>1 in deckA");
+        //text.setText(text.getText() + "<p>3 in deckB");
+        //text.setText(text.getText() + "<p>2 in deckC</html>");
         //text.setVerticalTextPosition(JLabel.BOTTOM);
         //text.setHorizontalAlignment(JLabel.CENTER);
 
@@ -40,32 +43,31 @@ public class GUIfindCardsFrame extends JFrame implements ActionListener
         //setVisible(false);
     }
 
-    protected void findCard(String cardName)
+    protected void findCard(String card, int numOwned, Vector<nameQuantity> numDecks)
     {
-        //System.out.println("findCardRoutine");
         setVisible(true);
-    }
+        String copy;
+        if(numOwned == 1)
+            copy = "copy";
+        else
+            copy = "copies";
 
-    //activates when a deck is selected from drop down menu
-    public void actionPerformed(ActionEvent e)
-    {
-        try
+        //prints number of copies in collection
+        text.setText("<html>Card: " + card + "<p>You have " + numOwned + " " + copy + " in your collection.<p>");
+
+        //loops through decks finding all copies of entered card
+        for(int i = 0; i < numDecks.size(); i++)
         {
-            //System.out.println(action.getClass());
+            if(numDecks.elementAt(i).quantity == 1)
+                copy = "copy";
+            else
+                copy = "copies";
 
-            //find type of object that performed the action
-            String ObjType = e.getSource().getClass().getName();
+            System.out.println("findcardsnow");
+            text.setText(text.getText() + "<p>" + numDecks.elementAt(i).quantity + " " + copy + " in " + numDecks.elementAt(i).deckName + ".");
+        }
 
-            //user selected a deck to load
-            //if(ObjType == "GUIfindCardsButton")
-            //{
-            //    System.out.println("newFrame");
-            //    setVisible(true);
-            //}
-        }
-        catch(Exception ex)
-        {
-            System.out.println(ex + "findCardsFrame");//////
-        }
+        text.setText(text.getText() + "</html>");
+        pack();
     }
 }

@@ -372,7 +372,8 @@ public class GUIpanel extends JPanel implements ActionListener
                 try
                 {
                     String deck = (String)deckNames.getSelectedItem();
-                    if(!input.getText().isEmpty()) {
+                    if(!input.getText().isEmpty())
+                    {
                         int errorCode = masterList.removeCard(deck, input.getText(), "Side");
                         if (errorCode < 0)
                             JOptionPane.showMessageDialog(new JFrame(), "Card couldn't be added");
@@ -412,8 +413,13 @@ public class GUIpanel extends JPanel implements ActionListener
             {
                 try
                 {
-                    //System.out.println("findCardActionListener");
-                    findCardsWindow.findCard("DoomBlade");
+                    if(!input.getText().isEmpty())
+                    {
+                        String card = input.getText();
+                        int numOwned = collectionList.numCopies(card);
+                        findCardsWindow.findCard(card, numOwned, masterList.findCardEverywhere(card));
+                        pack.doClick();
+                    }
                 }
                 catch(Exception ex)
                 {
@@ -425,7 +431,7 @@ public class GUIpanel extends JPanel implements ActionListener
 
     //----------------------------------------------------------------//
 
-    private void updateRecentDeck()
+    /*private void updateRecentDeck()
     {
         try
         {
@@ -450,7 +456,7 @@ public class GUIpanel extends JPanel implements ActionListener
         {
             System.out.println(e + "PanelUpdaterRoutine");
         }
-    }
+    }*/
 
     //createDeck.addActionListener(new ActionListener() {
      //   public void actionPerformed(ActionEvent e) {
