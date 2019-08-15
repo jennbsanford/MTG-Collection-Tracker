@@ -1,7 +1,7 @@
 # MTG-Collection-Tracker
 Track your Magic: the Gathering card collection and decklists!
 Keeping track of your physical MTG collection can be quite troublesome, so
-so decided to apply software to ease the situation!
+we decided to apply software to ease the situation!
 
 # Features!
 This program is intended to manage and store data related to your Magic: the Gathering card collection.
@@ -16,9 +16,12 @@ Ryan Sanford
 Dylan Voigt
 
 # How to Run This Program
-This program can be compiled with the standard Java Compiler. There is a library dependency on JSON.simple,
-which has been included as a .jar file in the /src/ directory of this repository. Make sure to include this
-file when compiling, or point your IDE to it.
+This program can be compiled with the standard Java Compiler. If you're using an IDE, simply clone the
+repository into your IDE and designate /src/ as the source directory. Your IDE should assist in setting
+up the SDK environment. If you're using the command line, simply compile with:  
+javac \*.java  
+Run with: java Main  
+
 
 # How to Use This Program
 This program uses a graphical interface, which is still under development. If you're uncertain what a button does,
