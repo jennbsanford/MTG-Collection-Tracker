@@ -1,7 +1,7 @@
 # MTG-Collection-Tracker
 Track your Magic: the Gathering card collection and decklists!
 Keeping track of your physical MTG collection can be quite troublesome, so
-so decided to apply software to ease the situation!
+we decided to apply software to ease the situation!
 
 # Features!
 This program is intended to manage and store data related to your Magic: the Gathering card collection.
