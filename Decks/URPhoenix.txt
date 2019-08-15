@@ -21,7 +21,7 @@ Main
 4 Scalding Tarn
 4 Spirebluff Canal
 2 Steam Vents
-Sideboard
+Side
 1 Flame Slash
 1 Aria of Flame
 1 Abrade
