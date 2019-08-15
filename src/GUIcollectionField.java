@@ -17,7 +17,6 @@ public class GUIcollectionField extends JTextArea
         c.weighty = 1;
         c.insets = new Insets(5, 5, 5,5);
         setEditable(false);
-        //c.anchor = GridBagConstraints.WEST;
-        append("collection here");////////
+        append("collection here");
     }
 }

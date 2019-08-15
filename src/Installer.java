@@ -10,10 +10,14 @@ public class Installer {
         try {
             path = System.getProperty("user.dir");
             File decks = new File(path + "/Decks");
-            File collection = new File(path + "/Collection.txt");
+            File masterList = new File(path + "/Decks/MasterDecklist.txt");
+            File collection = new File(path + "/Decks/Collection.txt");
 
             if (!decks.exists() || !decks.isDirectory())
                 decks.mkdir();
+
+            if(!masterList.exists())
+                masterList.createNewFile();
 
             if (!collection.exists())
                 collection.createNewFile();
@@ -21,7 +25,7 @@ public class Installer {
         }
         catch(Exception e)
         {
-            System.out.println(e + "Installer");
+            System.out.println(e + " Installer");
         }
     }
 }

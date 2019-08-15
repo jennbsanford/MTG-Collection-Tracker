@@ -8,9 +8,7 @@ import java.io.FileReader;
 
 public class GUIdeckField extends JTextArea implements ActionListener
 {
-    //private Object defaultMessage = "";
     private Boolean defaultMessage = true;
-    //protected JButton temp;
     protected String currentDeck = "";
     protected String path = "Decks/";
 

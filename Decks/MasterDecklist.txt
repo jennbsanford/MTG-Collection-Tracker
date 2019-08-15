@@ -1,3 +1,2 @@
-BorosBurn
-ModernCube
-URPhoenix
+deck1
+deck2
