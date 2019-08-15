@@ -40,6 +40,7 @@ public class EDHList extends Decklist {
         return true;
     }
 
+
     public void print() {
         super.print();
         System.out.println("Commander: " + commander);
@@ -53,6 +54,7 @@ public class EDHList extends Decklist {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public void copyHere(Decklist copyFrom) {
         changeName(copyFrom.getName());
         this.commander = ((EDHList)copyFrom).commander;

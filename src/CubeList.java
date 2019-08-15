@@ -44,6 +44,7 @@ public class CubeList extends Decklist {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public void copyHere(Decklist copyFrom) {
         changeName(copyFrom.getName());
         cardList = (Vector<Card>) ((CubeList)copyFrom).cardList.clone();

@@ -135,6 +135,7 @@ public class StandardList extends Decklist {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public void copyHere(Decklist copyFrom) {
         changeName(copyFrom.getName());
         maindeck = (Vector<Card>) ((StandardList)copyFrom).maindeck.clone();
