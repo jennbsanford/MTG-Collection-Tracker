@@ -21,8 +21,8 @@ which has been included as a .jar file in the /src/ directory of this repository
 file when compiling, or point your IDE to it.
 
 # How to Use This Program
-This program uses a graphical interface, which is still under development. More information on usage
-will be added here as the project develops.
+This program uses a graphical interface, which is still under development. If you're uncertain what a button does,
+simply mouse over it to get a tooltip description! Otherwise, the buttons will describe their functionality directly.
 
 # License
 The license information can be found in the file LICENSE, found at the top level of this repository.
