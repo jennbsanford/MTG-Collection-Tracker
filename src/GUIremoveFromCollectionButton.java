@@ -10,7 +10,7 @@ public class GUIremoveFromCollectionButton extends JButton
         c.fill = GridBagConstraints.NONE;
         c.gridheight = 1;
         c.gridwidth = 1;
-        c.gridx = 1;
+        c.gridx = 2;
         c.gridy = 1;
         c.weightx = 1;
         c.weighty = 1;

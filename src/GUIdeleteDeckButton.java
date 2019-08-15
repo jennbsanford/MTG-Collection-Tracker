@@ -12,10 +12,8 @@ public class GUIdeleteDeckButton extends JButton implements ActionListener
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridheight = 1;
         c.gridwidth = 1;
-        //c.gridheight = GridBagConstraints.NORTH;
-        c.gridx = 3;
+        c.gridx = 4;
         c.gridy = 3;
-        //c.fill = GridBagConstraints.NONE;
         c.weightx = 0;
         c.weighty = 0;
         c.insets = new Insets(5, 1, 5,1);
@@ -25,14 +23,11 @@ public class GUIdeleteDeckButton extends JButton implements ActionListener
     {
         try
         {
-            //System.out.println(e.getClass());
-
-            //find type of object that performed the action
             String ObjType = e.getSource().getClass().getName();
         }
         catch(Exception ex)
         {
-            System.out.println(ex + "deleteDeckButton");//////
+            System.out.println(ex + " deleteDeckButton");
         }
     }
 }

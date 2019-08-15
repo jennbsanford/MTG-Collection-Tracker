@@ -10,7 +10,7 @@ public class GUIaddToCollectionButton extends JButton
         c.fill = GridBagConstraints.NONE;
         c.gridheight = 1;
         c.gridwidth = 1;
-        c.gridx = 0;
+        c.gridx = 1;
         c.gridy = 1;
         c.weightx = 1;
         c.weighty = 1;

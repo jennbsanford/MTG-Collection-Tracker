@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 public class GUIframe extends JFrame implements ActionListener
 {
     protected GUIpanel mainPanel;
-    //protected MasterDecklist masterList;
 
     public GUIframe(MasterDecklist masterD, MasterCollection masterC) throws Exception
     {
@@ -44,6 +43,6 @@ public class GUIframe extends JFrame implements ActionListener
 
     public void actionPerformed(ActionEvent e)
     {
-        System.out.println("FrameAction");
+        System.out.println(" FrameAction");
     }
 }

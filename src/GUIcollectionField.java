@@ -9,7 +9,7 @@ public class GUIcollectionField extends JTextArea
         super(20,25);
         setToolTipText("Click a card name to enter it above");
         c.gridheight = 9;
-        c.gridwidth = 1;
+        c.gridwidth = 3;
         c.fill = GridBagConstraints.BOTH;
         c.gridx = 1;
         c.gridy = 2;

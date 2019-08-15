@@ -4,13 +4,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.*;
 
 import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER;
 
-public class GUIpanel extends JPanel implements ActionListener
+public class GUIpanel extends JPanel
 {
-    //master list of decks
+    //master lists of cards
     private MasterDecklist masterList;
     private MasterCollection collectionList;
 
@@ -35,17 +34,10 @@ public class GUIpanel extends JPanel implements ActionListener
     protected GUIsaveAllButton saveAll;
     protected GUIfindCardsButton findCards;
 
-
-
     //windows
     private GUInewDeckFrame newDeckInput;
     private GUIfindCardsFrame findCardsWindow;
     protected JButton pack;
-
-    protected String path = "Decks/";
-
-    //protected JButton temp;//
-    //protected JButton temp2;//
 
     GUIpanel(MasterDecklist deckLists, MasterCollection collectionLists) throws Exception
     {
@@ -61,7 +53,6 @@ public class GUIpanel extends JPanel implements ActionListener
         GridBagConstraints c = new GridBagConstraints();
 
         //initialize components and add to panel
-        //user input field
         input = new GUIuserInputField(c);
         add(input, c);
 
@@ -83,13 +74,10 @@ public class GUIpanel extends JPanel implements ActionListener
 
         //deck list drop down menu
         deckNames = new GUIdecksComboBox(c, masterList.allDeckNames());
-        //deckNames.addActionListener(deck);
-        //newDeckInput.updater.addActionListener(deckNames);
         add(deckNames, c);
 
         //create new deck button
         createDeck = new GUIcreateDeckButton(c);
-        //createDeck.addActionListener(createDeck);
         add(createDeck, c);
 
 
@@ -131,7 +119,6 @@ public class GUIpanel extends JPanel implements ActionListener
 
         //find all copies of the card name in the input field
         findCards = new GUIfindCardsButton(c);
-        //findCards.addActionListener(findCardsWindow);
         add(findCards, c);
 
         //window that shows all locations for entered card
@@ -144,17 +131,8 @@ public class GUIpanel extends JPanel implements ActionListener
         newDeckInput = new GUInewDeckFrame();
         createDeck.addActionListener(newDeckInput);
         copyDeck.addActionListener(newDeckInput);
-        //deleteDeck.addActionListener(deleteDeck);
-        //newDeckInput.updater.addActionListener(this);
-        //newDeckInput.copyDeck.addActionListener(this);
-        //newDeckInput.updater.addActionListener(deckNames);
 
-        //action listeners
-        //findCards.addActionListener(findCardsWindow);
-        //newDeckInput.updater.addActionListener(deckNames);
-        //newDeckInput.updater.addActionListener(this);
-        //newDeckInput.copyDeck.addActionListener(this);
-
+        //listens for when user clicks on a card
         collection.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -175,6 +153,7 @@ public class GUIpanel extends JPanel implements ActionListener
             }
         });
 
+        //listens for when user clicks on a card
         deck.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -433,22 +412,6 @@ public class GUIpanel extends JPanel implements ActionListener
         });
 
         //invokes deck field update routine
-        /*newDeckInput.updater.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                try
-                {
-
-                }
-                catch(Exception ex)
-                {
-                    System.out.println(e + "PanelCopyDeck");
-                }
-            }
-        });*/
-
-        //invokes deck field update routine
         findCards.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
@@ -469,62 +432,5 @@ public class GUIpanel extends JPanel implements ActionListener
                 }
             }
         });
-    }
-
-    //----------------------------------------------------------------//
-
-    /*private void updateRecentDeck()
-    {
-        try
-        {
-            File directory = new File(path);
-            File[] fileNames = directory.listFiles();
-
-            File mostRecent = null;
-            long mostRecentTime = 0;
-            for (int i = 0; i < fileNames.length; i++) {
-                if (fileNames[i].lastModified() > mostRecentTime) {
-                    mostRecent = fileNames[i];
-                    mostRecentTime = fileNames[i].lastModified();
-                }
-            }
-
-            //update components
-            deck.loadDeck(mostRecent.getName());
-            //deckNames.loadNames();
-            deckNames.setSelectedItem(mostRecent.getName());
-        }
-        catch(Exception e)
-        {
-            System.out.println(e + "PanelUpdaterRoutine");
-        }
-    }*/
-
-    //createDeck.addActionListener(new ActionListener() {
-     //   public void actionPerformed(ActionEvent e) {
-      //  }
-    //});
-
-    public void actionPerformed(ActionEvent e)
-    {
-        try
-        {
-            //System.out.println(e.getClass());
-
-            //find type of object that performed the action
-            String ObjType = e.getSource().getClass().getName();
-
-            //set deck field and drop down box to most recently made deck
-            /*if(ObjType == "javax.swing.JButton")
-            {
-                //
-                System.out.println("entered general Panel actionPerformed routine");
-                //updateRecentDeck();
-            }*/
-        }
-        catch(Exception ex)
-        {
-            System.out.println(ex + " panelGeneralListener");//////
-        }
     }
 }

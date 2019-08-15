@@ -7,12 +7,8 @@ public class Main {
 
 		// parse all data decklist and collection data from .txt files
 		Installer installer = new Installer();
-		//MasterDecklist masterDecklist = new MasterDecklist();
-		//MasterCollection masterCollection = new MasterCollection();
 		ListParser parse = new ListParser();
 		Vector list = parse.parseMasterList();
-		//masterDecklist = parse.parseAllDecklists(list);
-		//masterCollection = parse.parseMasterCollection();
 		@SuppressWarnings("unchecked")
 		MasterDecklist masterDecklist = parse.parseAllDecklists(list);
 		MasterCollection masterCollection = parse.parseMasterCollection();

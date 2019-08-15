@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 public class GUInewDeckFrame extends JFrame implements ActionListener
 {
-    protected JPanel panel;
+    private JPanel panel;
     protected JTextField inputField;
     protected JButton saveName;
     protected boolean makeCopy = false;

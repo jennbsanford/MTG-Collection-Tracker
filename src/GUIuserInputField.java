@@ -5,7 +5,7 @@ public class GUIuserInputField extends JTextField
 {
     GUIuserInputField(GridBagConstraints c)
     {
-        super(16);
+        super("Type card names here!",16);
         c.gridwidth = 4;
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 1;
