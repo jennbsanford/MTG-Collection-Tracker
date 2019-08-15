@@ -18,9 +18,9 @@ Dylan Voigt
 # How to Run This Program
 This program can be compiled with the standard Java Compiler. If you're using an IDE, simply clone the
 repository into your IDE and designate /src/ as the source directory. Your IDE should assist in setting
-up the SDK environment. If you're using the command line, simply compile with:\n
-javac \*.java \n
-Run with: java Main
+up the SDK environment. If you're using the command line, simply compile with:  
+javac \*.java  
+Run with: java Main  
 
 
 # How to Use This Program
