@@ -75,7 +75,7 @@ public class JSONReader {
         );
     }*/
 
-}
+//}
 
 // https://howtodoinjava.com/library/json-simple-read-write-json-examples/
 //String name = jsonObject.get("A Display of My Dark Power").toString();
@@ -94,4 +94,3 @@ public class JSONReader {
 //if (keyvalue instanceof JSONObject)
 //    printJsonObject((JSONObject)keyvalue);
 //System.out.println("key: "+ keyStr + " value: " + keyvalue);
-*/
