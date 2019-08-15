@@ -42,11 +42,6 @@ public class GUIframe extends JFrame implements ActionListener
         });
     }
 
-    public static void main(String[] args)
-    {
-        System.out.print("Entered frame class main.");//////////
-    }
-
     public void actionPerformed(ActionEvent e)
     {
         System.out.println("FrameAction");

@@ -527,10 +527,4 @@ public class GUIpanel extends JPanel implements ActionListener
             System.out.println(ex + " panelGeneralListener");//////
         }
     }
-
-    public static void main(String[] args)
-    {
-
-        System.out.print("Entered panel class main.");//////////
-    }
 }
