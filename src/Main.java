@@ -6,6 +6,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		// parse all data decklist and collection data from .txt files
+		Installer installer = new Installer();
 		MasterDecklist masterDecklist = new MasterDecklist();
 		MasterCollection masterCollection = new MasterCollection();
 		ListParser parse = new ListParser();

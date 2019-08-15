@@ -71,15 +71,15 @@ public class GUIpanel extends JPanel implements ActionListener
         JScrollPane colScroll = new JScrollPane(collection);
         colScroll.setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
         add(colScroll, c);
-        //add(new JScrollPane(collection), c);
 
         //deck list field
         deck = new GUIdeckField(c);
+        if(masterList.allDeckNames().size() == 0)
+            masterList.createStandardDecklist("New Deck");
         deck.loadDeck(masterList.getString(masterList.allDeckNames().elementAt(0)));
         JScrollPane deckScroll = new JScrollPane(deck);
         deckScroll.setHorizontalScrollBarPolicy(HORIZONTAL_SCROLLBAR_NEVER);
         add(deckScroll, c);
-        //add(new JScrollPane(deck), c);
 
         //deck list drop down menu
         deckNames = new GUIdecksComboBox(c, masterList.allDeckNames());
