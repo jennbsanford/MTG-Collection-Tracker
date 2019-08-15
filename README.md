@@ -1,13 +1,17 @@
 # MTG-Collection-Tracker
 Track your Magic: the Gathering card collection and decklists!
-This project is currently VERY early in development, and will be lacking essential features.
+Keeping track of your physical MTG collection can be quite troublesome, so
+so decided to apply software to ease the situation!
 
-# Planned Features
+# Features!
 This program is intended to manage and store data related to your Magic: the Gathering card collection.
 Data will be stored on how many copies of a card you own, what cards a deck is included in, and
-a decklist management tool which will store your old and current decklists.
+a decklist management tool which will store your old and current decklists. You can also see what
+decks a certain card is related with to help track down that card you can't find anymore!
 
 # Coded By Comp Sci Undergrads
+This is a student project, so many lessons were learned in developing this code!
+This program was written and tested by:
 Ryan Sanford
 Dylan Voigt
 
