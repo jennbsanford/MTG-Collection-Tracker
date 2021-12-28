@@ -12,7 +12,7 @@ decks a certain card is related with to help track down that card you can't find
 # Coded By Comp Sci Undergrads
 This is a student project, so many lessons were learned in developing this code!
 This program was written and tested by:
-Ryan Sanford
+Jennifer Sanford
 Dylan Voigt
 
 # How to Run This Program
